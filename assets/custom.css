@@ -1,0 +1,23 @@
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    vertical-align: bottom;
+    font-size: .875rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.avatar-md {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    line-height: 2.5rem;
+    font-size: 1rem;
+}

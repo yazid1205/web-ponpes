@@ -34,23 +34,23 @@
                     <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama</th>
-                          <th>Jurusan</th>
-                          <th>Username</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Kelas</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($mahasiswa->result() as $x => $d): ?>
+                        <?php foreach ($jadwal->result() as $x => $d): ?>
                         <tr>
-                            <td><?php echo $x+1 ?></td>
-                            <td>
                               <td><?=$x+1?></td>
-                              <td><?=$d->name?></td>
-                              <td><?=$d->jurusan?></td>
-                              <td><?=$d->username?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->kelas?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_data(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_jadwal(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>
@@ -66,40 +66,28 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title">Tambah Admin</h6>
+                <h6 class="modal-title">Tambah Mata Pelajaran</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('admin/tambah_mahasiswa') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('admin/tambah_jadwal') ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Nama</label>
-                    <input type="text" class="form-control" name="admin_name">
+                    <label>Mata Pelajaran</label>
+                    <input type="text" class="form-control" name="mapel">
                 </div>
                 <div class="form-group">
-                    <label>NIP</label>
-                    <input type="text" class="form-control" name="nip">
+                    <label>Kelas</label>
+                    <input type="text" class="form-control" name="kelas">
                 </div>
                 <div class="form-group">
-                    <label>Jabatan</label>
-                    <input type="text" class="form-control" name="jabatan">
+                    <label>Semester</label>
+                    <input type="text" class="form-control" name="semester">
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" name="username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                <div class="form-group">
-                    <label>Upload Foto</label>
-                    <input type="file" class="form-control" name="image">
+                    <label>Tahun Ajaran</label>
+                    <input type="text" class="form-control" name="tahun">
                 </div>
             </div>
             <div class="modal-footer">
@@ -111,7 +99,7 @@
     </div>
 </div>
 
-<?php foreach($mahasiswa->result() as $d): ?>
+<?php foreach($jadwal->result() as $d): ?>
 <div class="modal fade" id="edit_<?=$d->id?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -121,35 +109,23 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('admin/update_mahasiswa/' . $d->id) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('admin/update_jadwal/' . $d->id) ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
-                <div class="form-group">
-                    <label>Nama</label>
-                    <input type="text" class="form-control" name="admin_name">
+               <div class="form-group">
+                    <label>Mata Pelajaran</label>
+                    <input type="text" class="form-control" name="mapel" value="<?=$d->mapel?>">
                 </div>
                 <div class="form-group">
-                    <label>NIP</label>
-                    <input type="text" class="form-control" name="nip">
+                    <label>Kelas</label>
+                    <input type="text" class="form-control" name="kelas" value="<?=$d->kelas?>">
                 </div>
                 <div class="form-group">
-                    <label>Jabatan</label>
-                    <input type="text" class="form-control" name="jabatan">
+                    <label>Semester</label>
+                    <input type="text" class="form-control" name="semester" value="<?=$d->semester?>">
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" name="username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                <div class="form-group">
-                    <label>Upload Foto</label>
-                    <input type="file" class="form-control" name="image">
+                    <label>Tahun Ajaran</label>
+                    <input type="text" class="form-control" name="tahun" value="<?=$d->tahun_ajaran?>">
                 </div>
             </div>
             <div class="modal-footer">
@@ -163,13 +139,13 @@
 <?php endforeach ?>
 
 <script>
-function delete_data(id) {
+function delete_jadwal(id) {
     var check = confirm('Yakin ingin menghapus data ?');
 
     if(check) {
         $.ajax({
             type: 'post',
-            url : '<?=base_url('admin/delete_mahasiswa')?>',
+            url : '<?=base_url('admin/delete_jadwal')?>',
             data : {id:id},
             success: function(res) {
                 if(res == 1) {

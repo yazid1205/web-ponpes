@@ -35,22 +35,32 @@
                         <tr>
                           <th>No</th>
                           <th>Nama</th>
-                          <th>Jurusan</th>
-                          <th>Username</th>
+                          <th>Nip</th>
+                          <th>Pendidikan</th>
+                          <th>Jabatan</th>
+                          <th>TTL</th>
+                          <th>Jenis Kelamin</th>
+                          <th>Telp</th>
+                          <th>Email</th>
+                          <th>Status</th>
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($mahasiswa->result() as $x => $d): ?>
+                        <?php foreach ($staff->result() as $x => $d): ?>
                         <tr>
-                            <td><?php echo $x+1 ?></td>
-                            <td>
                               <td><?=$x+1?></td>
                               <td><?=$d->name?></td>
-                              <td><?=$d->jurusan?></td>
-                              <td><?=$d->username?></td>
+                              <td><?=$d->nip?></td>
+                              <td><?=$d->pendidikan?></td>
+                              <td><?=$d->jabatan?></td>
+                              <td><?=$d->tempat_lahir?>, <?=$d->tgl_lahir?></td>
+                              <td><?=$d->j_kelamin?></td>
+                              <td><?=$d->telp?></td>
+                              <td><?=$d->email?></td>
+                              <td><?=$d->status?></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_data(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_staff(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>
@@ -66,36 +76,50 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title">Tambah Admin</h6>
+                <h6 class="modal-title">Tambah Pegawai</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('admin/tambah_mahasiswa') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('admin/tambah_staff') ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="admin_name">
+                    <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
                     <label>NIP</label>
                     <input type="text" class="form-control" name="nip">
                 </div>
                 <div class="form-group">
+                    <label>Pendidikan</label>
+                    <input type="text" class="form-control" name="pendidikan">
+                </div>
+                <div class="form-group">
                     <label>Jabatan</label>
                     <input type="text" class="form-control" name="jabatan">
+                </div>
+                <div class="form-group">
+                    <label>Tempat Lahir</label>
+                    <input type="password" class="form-control" name="tempat_lahir">
+                    <label>Tanggal Lahir</label>
+                    <input type="password" class="form-control" name="tgl_lahir">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <input type="text" class="form-control" name="j_kelamin">
+                </div>
+                <div class="form-group">
+                    <label>Telp</label>
+                    <input type="text" class="form-control" name="telp">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
                     <input type="text" class="form-control" name="email">
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" name="username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password">
+                    <label>Status</label>
+                    <input type="text" class="form-control" name="status">
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
@@ -111,7 +135,7 @@
     </div>
 </div>
 
-<?php foreach($mahasiswa->result() as $d): ?>
+<?php foreach($staff->result() as $d): ?>
 <div class="modal fade" id="edit_<?=$d->id?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -121,31 +145,45 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('admin/update_mahasiswa/' . $d->id) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('admin/update_staff/' . $d->id) ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="admin_name">
+                    <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
                     <label>NIP</label>
                     <input type="text" class="form-control" name="nip">
                 </div>
                 <div class="form-group">
+                    <label>Pendidikan</label>
+                    <input type="text" class="form-control" name="pendidikan">
+                </div>
+                <div class="form-group">
                     <label>Jabatan</label>
                     <input type="text" class="form-control" name="jabatan">
+                </div>
+                <div class="form-group">
+                    <label>Tempat Lahir</label>
+                    <input type="password" class="form-control" name="tempat_lahir">
+                    <label>Tanggal Lahir</label>
+                    <input type="password" class="form-control" name="tgl_lahir">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <input type="text" class="form-control" name="j_kelamin">
+                </div>
+                <div class="form-group">
+                    <label>Telp</label>
+                    <input type="text" class="form-control" name="telp">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
                     <input type="text" class="form-control" name="email">
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" name="username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password">
+                    <label>Status</label>
+                    <input type="text" class="form-control" name="status">
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
@@ -163,13 +201,13 @@
 <?php endforeach ?>
 
 <script>
-function delete_data(id) {
+function delete_staff(id) {
     var check = confirm('Yakin ingin menghapus data ?');
 
     if(check) {
         $.ajax({
             type: 'post',
-            url : '<?=base_url('admin/delete_mahasiswa')?>',
+            url : '<?=base_url('admin/delete_staff')?>',
             data : {id:id},
             success: function(res) {
                 if(res == 1) {

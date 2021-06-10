@@ -19,6 +19,25 @@ class Model extends CI_Model{
         return $this->db->get($table);
     }
 
+    function kegiatan() {
+        return $this->db->get('kegiatan');
+    }
+
+    function ekstra() {
+        return $this->db->get('ekstrakulikuler');
+    }
+
+    function fasilitas() {
+        return $this->db->get('fasilitas');
+    }
+
+    function jadwal() {
+        return $this->db->get('jadwal');
+    }
+
+    function staff() {
+        return $this->db->get('pegawai');
+    }
 }
 
 ?>

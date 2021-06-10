@@ -21,7 +21,7 @@
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col-md-6">
-                    <h6>Data Fasilitas</h6>
+                    <h6>Data Admin</h6>
                 </div>
                 <div class="col-md-6 text-right">
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-plus-circle mr-1"></i>Tambah</button>
@@ -35,20 +35,24 @@
                         <tr>
                           <th>No</th>
                           <th>Nama</th>
-                          <th>Gambar</th>
-                          <th>Jumlah</th>
+                          <th>NIP</th>
+                          <th>Email</th>
+                          <th>Username</th>
+                          <th>Photo</th>
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($fasilitas->result() as $x => $d): ?>
+                        <?php foreach ($user->result() as $x => $d): ?>
                         <tr>
-                              <td><?=$x+1?></td>
+                            <td><?php echo $x+1 ?></td>
                               <td><?=$d->name?></td>
-                              <td><?=$d->image?></td>
-                              <td><?=$d->jmh?></td>
+                              <td><?=$d->nip?></td>
+                              <td><?=$d->email?></td>
+                              <td><?=$d->username?></td>
+                              <td><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"><img src="<?= base_url($d->image) ?>" height="100%"></a></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_data(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_user(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>
@@ -69,19 +73,35 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('admin/tambah_fasilitas') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('admin/tambah_user') ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
                     <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
+                    <label>NIP</label>
+                    <input type="text" class="form-control" name="nip">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-group">
                     <label>Upload Foto</label>
                     <input type="file" class="form-control" name="image">
                 </div>
                 <div class="form-group">
-                    <label>Jumlah</label>
-                    <input type="password" class="form-control" name="jmh">
+                    <label>Level</label>
+                    <input type="text" class="form-control" name="level">
                 </div>
             </div>
             <div class="modal-footer">
@@ -93,7 +113,7 @@
     </div>
 </div>
 
-<?php foreach($fasilitas->result() as $d): ?>
+<?php foreach($user->result() as $d): ?>
 <div class="modal fade" id="edit_<?=$d->id?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -103,19 +123,35 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('admin/update_fasilitas/' . $d->id) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('admin/update_user/' . $d->id) ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" value="<?=$d->name?>">
+                </div>
+                <div class="form-group">
+                    <label>NIP</label>
+                    <input type="text" class="form-control" name="nip" value="<?=$d->nip?>">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" value="<?=$d->email?>">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" value="<?=$d->username?>">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" >
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
                     <input type="file" class="form-control" name="image">
                 </div>
                 <div class="form-group">
-                    <label>Jumlah</label>
-                    <input type="password" class="form-control" name="jmh">
+                    <label>Level</label>
+                    <input type="text" class="form-control" name="level" value="<?=$d->level?>">
                 </div>
             </div>
             <div class="modal-footer">
@@ -129,13 +165,13 @@
 <?php endforeach ?>
 
 <script>
-function delete_data(id) {
+function delete_user(id) {
     var check = confirm('Yakin ingin menghapus data ?');
 
     if(check) {
         $.ajax({
             type: 'post',
-            url : '<?=base_url('admin/delete_fasilitas')?>',
+            url : '<?=base_url('admin/delete_user')?>',
             data : {id:id},
             success: function(res) {
                 if(res == 1) {

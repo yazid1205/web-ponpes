@@ -1,4 +1,3 @@
-
     <aside id="fh5co-hero">
         <div class="flexslider">
             <ul class="slides">

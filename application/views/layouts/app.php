@@ -152,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
           <li class="nav-item">
-            <a href="<?php echo base_url('admin/mahasiswa') ?>" class="nav-link <?= ($active == 'mahasiswa') ? 'active' : '' ?>">
+            <a href="<?php echo base_url('admin/mahasiswa') ?>" class="nav-link <?= ($active == 'user') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>Users</p>
             </a>

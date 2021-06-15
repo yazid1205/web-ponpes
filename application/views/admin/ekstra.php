@@ -47,7 +47,7 @@
                         <tr>
                               <td><?=$x+1?></td>
                               <td><?=$d->name?></td>
-                              <td><?=$d->image?></td>
+                              <td><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"><img src="<?= base_url($d->image) ?>" height="50px" weight="50px"></a></td>
                               <td><?=$d->pembina?></td>
                               <td><?=$d->hari?></td>
                               <td><?=$d->jam?></td>
@@ -110,7 +110,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title">Edit Admin</h6>
+                <h6 class="modal-title">Edit Ekstrakulikuler</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -119,23 +119,23 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" value="<?=$d->name?>">
                 </div>
                 <div class="form-group">
                     <label>Pembina</label>
-                    <input type="text" class="form-control" name="pembina">
+                    <input type="text" class="form-control" name="pembina" value="<?=$d->pembina?>">
                 </div>
                 <div class="form-group">
                     <label>Hari</label>
-                    <input type="text" class="form-control" name="hari">
+                    <input type="text" class="form-control" name="hari" value="<?=$d->hari?>">
                 </div>
                 <div class="form-group">
                     <label>Pukul</label>
-                    <input type="text" class="form-control" name="jam">
+                    <input type="text" class="form-control" name="jam" value="<?=$d->jam?>">
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" class="form-control" name="image" value="<?=$d->image?>">
                 </div>
             </div>
             <div class="modal-footer">

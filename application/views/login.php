@@ -30,6 +30,7 @@
                 <hr>
                 <button class="btn btn-primary btn-block">Login</button>
               </form>
+              <center><button class="btn btn-sucses"><a href="login" >Login With Google</a></button></center>
             </div>
           </div>
         </div>

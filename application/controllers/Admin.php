@@ -18,11 +18,11 @@ class Admin extends CI_Controller {
         $this->load->view('layouts/app', $data);
     }
 
-    public function mahasiswa() 
+    public function user() 
     {
         $data['page'] = 'admin/user';
         $data['active'] = 'user';
-        $data['user'] = $this->model->mahasiswa();
+        $data['user'] = $this->model->user();
 
         $this->load->view('layouts/app', $data);
     }
@@ -30,6 +30,28 @@ class Admin extends CI_Controller {
     function tambah_user()
     {
         $password = $this->bcrypt->hash_password($this->input->post('password'));
+        
+        // Koding Upload Foto
+        $path = 'assets/images';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
 
         $attr = [
             'name' => $this->input->post('name'),
@@ -37,30 +59,10 @@ class Admin extends CI_Controller {
             'email' => $this->input->post('email'),
             'username' => $this->input->post('username'),
             'password' => $password,
+            'image' => $filename,
             'level' => $this->input->post('level'),
         ];
 
-        
-        // Koding Upload Foto
-        $ext = pathinfo($_FILES["image"]["name"]);
-        $filename = time() . '.' . $ext;
-        $path = 'assets/images/';
-
-        $config['upload_path']          = $path;
-        $config['allowed_types']        = 'jpg|png|jpeg';
-        $config['max_size']             = 2048;
-        $config['file_name']            = $filename;
-
-        $this->load->library('upload', $config);
-
-        if(!$this->upload->do_upload('image')) {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        // Akhir koding upload foto
-
-        $attr['image'] = $path . $filename;
 
        // echo "<pre>";
        // var_dump($attr);
@@ -74,38 +76,45 @@ class Admin extends CI_Controller {
     public function update_user($id)
     {
        $d = $this->db->get_where('users', ['id' => $id])->row();
-       $attr = [
-            'name' => $this->input->post('name'),
-            'nip' => $this->input->post('nip'),
-            'email' => $this->input->post('email'),
-            'username' => $this->input->post('username'),
-            'level' => $this->input->post('level'),
-        ];
-
+      
         $password = $this->input->post('password');
         if($password != '') {
             $attr['password'] = $this->bcrypt->hash_password($password);
         }
 
-        if(!empty($_FILES["foto"]["name"])) {
-            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            $filename = time() . '.' . $ext;
-            $path = 'assets/images/';
+        if(!empty($_FILES["image"]["name"])) {
+           // Koding Upload Foto
+       
+        $path = 'assets/images';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
 
-            $config['upload_path']          = $path;
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = 1024;
-            $config['file_name']            = $filename;
+        $this->load->library('upload', $config);
 
-            $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
 
-            if(!$this->upload->do_upload('image')) {
-                $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-                $this->session->set_flashdata('danger', $error);
-            }
-            // Akhir koding upload foto
+           $filename = $path . '/' . $data['upload_data']['file_name'];
 
-            $attr['image'] = $path . $filename;
+        $attr = [
+            'name' => $this->input->post('name'),
+            'nip' => $this->input->post('nip'),
+            'email' => $this->input->post('email'),
+            'username' => $this->input->post('username'),
+            'password' => $password,
+            'image' => $filename,
+            'level' => $this->input->post('level'),
+        ];
 
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
@@ -136,28 +145,32 @@ class Admin extends CI_Controller {
     function tambah_kegiatan()
     {
         
-        // Koding Upload Foto
-        $ext = pathinfo($_FILES["image"]["name"]);
-        $filename = time() . '.' . $ext;
-        $path = 'assets/images/';
-
-        $config['upload_path']          = $path;
-        $config['allowed_types']        = 'jpg|png|jpeg';
+       // Koding Upload Foto
+        $path = 'assets/images/kegiatan';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
         $config['max_size']             = 2048;
-        $config['file_name']            = $filename;
 
         $this->load->library('upload', $config);
 
-        if(!$this->upload->do_upload('gambar')) {
+        if ( ! $this->upload->do_upload('gambar'))
+        {
             $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
             $this->session->set_flashdata('danger', $error);
             redirect($_SERVER['HTTP_REFERER']);
         }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
         // Akhir koding upload foto
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
 
         $attr = [
             'judul' => $this->input->post('judul'),
             'isi' => $this->input->post('isi'),
+            'gambar' => $filename,
         ];
        // echo "<pre>";
        // var_dump($attr);
@@ -173,31 +186,35 @@ class Admin extends CI_Controller {
        $d = $this->db->get_where('kegiatan', ['id' => $id])->row();
       
 
-        if(!empty($_FILES["foto"]["name"])) {
-            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            $filename = time() . '.' . $ext;
-            $path = 'assets/images/';
+        if(!empty($_FILES["gambar"]["name"])) {
+            // Koding Upload Foto
+        $path = 'assets/images/kegiatan';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
 
-            $config['upload_path']          = $path;
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = 1024;
-            $config['file_name']            = $filename;
+        $this->load->library('upload', $config);
 
-            $this->load->library('upload', $config);
-
-            if(!$this->upload->do_upload('image')) {
-                $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-                $this->session->set_flashdata('danger', $error);
-            }
+        if ( ! $this->upload->do_upload('gambar'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
             // Akhir koding upload foto
+        $filename = $path . '/' . $data['upload_data']['file_name'];
 
-            $attr = [
+        $attr = [
             'judul' => $this->input->post('judul'),
             'isi' => $this->input->post('isi'),
-            'image' => $path . $filename,
-            ];
+            'gambar' => $filename,
+        ];
             //Koding hapus gambar lama
-            file_exists($lok=FCPATH.'/'. $d->image);
+            file_exists($lok=FCPATH.'/'. $d->gambar);
             unlink($lok);
         }
         
@@ -213,6 +230,103 @@ class Admin extends CI_Controller {
         echo 1;
     }
 
+        public function galeri() 
+    {
+        $data['page'] = 'admin/galeri';
+        $data['active'] = 'galeri';
+        $data['galeri'] = $this->model->galeri();
+
+        $this->load->view('layouts/app', $data);
+    }
+
+    function tambah_galeri()
+    {
+        
+       // Koding Upload Foto
+        $path = 'assets/images/galeri';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
+        $attr = [
+            'caption' => $this->input->post('caption'),
+            'image' => $filename,
+        ];
+       // echo "<pre>";
+       // var_dump($attr);
+        //exit();
+
+        $this->db->insert('galeri', $attr);
+        $this->session->set_flashdata('success', 'Berhasil Menambahkan Data');
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function update_galeri($id)
+    {
+       $d = $this->db->get_where('galeri', ['id' => $id])->row();
+      
+
+        if(!empty($_FILES["gambar"]["name"])) {
+            // Koding Upload Foto
+        $path = 'assets/images/galeri';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+            // Akhir koding upload foto
+
+        
+            //Koding hapus gambar lama
+            file_exists($lok=FCPATH.'/'. $d->image);
+            unlink($lok);
+        }
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+        $attr = [
+            'caption' => $this->input->post('caption'),
+            'image' => $filename,
+        ];
+        
+        $this->model->update('galeri', $attr, $id);
+        $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function delete_galeri()
+    {
+        $this->model->delete('galeri', $this->input->post('id'));
+        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
+        echo 1;
+    }
+
     public function fasilitas() 
     {
         $data['page'] = 'admin/fasilitas';
@@ -224,33 +338,33 @@ class Admin extends CI_Controller {
 
     function tambah_fasilitas()
     {
-        
         // Koding Upload Foto
-        $ext = pathinfo($_FILES["image"]["name"]);
-        $filename = time() . '.' . $ext;
-        $path = 'assets/images/';
-
-        $config['upload_path']          = $path;
-        $config['allowed_types']        = 'jpg|png|jpeg';
+        $path = 'assets/images/fasilitas';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
         $config['max_size']             = 2048;
-        $config['file_name']            = $filename;
 
         $this->load->library('upload', $config);
 
-        if(!$this->upload->do_upload('gambar')) {
+        if ( ! $this->upload->do_upload('image'))
+        {
             $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
             $this->session->set_flashdata('danger', $error);
             redirect($_SERVER['HTTP_REFERER']);
         }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
         // Akhir koding upload foto
+ 
+        $filename = $path . '/' . $data['upload_data']['file_name'];
 
         $attr = [
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
+            'name' => $this->input->post('name'),
+            'jmh' => $this->input->post('jmh'),
+            'image' => $filename,
         ];
-       // echo "<pre>";
-       // var_dump($attr);
-        //exit();
 
         $this->db->insert('fasilitas', $attr);
         $this->session->set_flashdata('success', 'Berhasil Menambahkan Data');
@@ -263,33 +377,38 @@ class Admin extends CI_Controller {
       
 
         if(!empty($_FILES["foto"]["name"])) {
-            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            $filename = time() . '.' . $ext;
-            $path = 'assets/images/';
+             // Koding Upload Foto
+        $path = 'assets/images/fasilitas';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
 
-            $config['upload_path']          = $path;
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = 1024;
-            $config['file_name']            = $filename;
+        $this->load->library('upload', $config);
 
-            $this->load->library('upload', $config);
-
-            if(!$this->upload->do_upload('image')) {
-                $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-                $this->session->set_flashdata('danger', $error);
-            }
-            // Akhir koding upload foto
-
-            $attr = [
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
-            'image' => $path . $filename,
-            ];
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
+ 
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
             unlink($lok);
         }
         
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
+        $attr = [
+            'name' => $this->input->post('name'),
+            'jmh' => $this->input->post('jmh'),
+            'image' => $filename,
+        ];
         $this->model->update('fasilitas', $attr, $id);
         $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
         redirect($_SERVER['HTTP_REFERER']);
@@ -313,29 +432,40 @@ class Admin extends CI_Controller {
 
     function tambah_staff()
     {
-        
         // Koding Upload Foto
-        $ext = pathinfo($_FILES["image"]["name"]);
-        $filename = time() . '.' . $ext;
-        $path = 'assets/images/';
-
-        $config['upload_path']          = $path;
-        $config['allowed_types']        = 'jpg|png|jpeg';
+        $path = 'assets/images/pegawai';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
         $config['max_size']             = 2048;
-        $config['file_name']            = $filename;
 
         $this->load->library('upload', $config);
 
-        if(!$this->upload->do_upload('gambar')) {
+        if ( ! $this->upload->do_upload('image'))
+        {
             $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
             $this->session->set_flashdata('danger', $error);
             redirect($_SERVER['HTTP_REFERER']);
         }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
         // Akhir koding upload foto
 
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
         $attr = [
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
+            'name' => $this->input->post('name'),
+            'nip' => $this->input->post('nip'),
+            'pendidikan' => $this->input->post('pendidikan'),
+            'jabatan' => $this->input->post('jabatan'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'j_kelamin' => $this->input->post('j_kelamin'),
+            'telp' => $this->input->post('telp'),
+            'email' => $this->input->post('email'),
+            'status' => $this->input->post('status'),
+            'image' => $filename,
         ];
        // echo "<pre>";
        // var_dump($attr);
@@ -352,33 +482,47 @@ class Admin extends CI_Controller {
       
 
         if(!empty($_FILES["foto"]["name"])) {
-            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            $filename = time() . '.' . $ext;
-            $path = 'assets/images/';
+           // Koding Upload Foto
+        $path = 'assets/images/pegawai';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
 
-            $config['upload_path']          = $path;
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = 1024;
-            $config['file_name']            = $filename;
+        $this->load->library('upload', $config);
 
-            $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
 
-            if(!$this->upload->do_upload('image')) {
-                $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-                $this->session->set_flashdata('danger', $error);
-            }
-            // Akhir koding upload foto
-
-            $attr = [
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
-            'image' => $path . $filename,
-            ];
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
             unlink($lok);
         }
         
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
+        $attr = [
+            'name' => $this->input->post('name'),
+            'nip' => $this->input->post('nip'),
+            'pendidikan' => $this->input->post('pendidikan'),
+            'jabatan' => $this->input->post('jabatan'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'j_kelamin' => $this->input->post('j_kelamin'),
+            'telp' => $this->input->post('telp'),
+            'email' => $this->input->post('email'),
+            'status' => $this->input->post('status'),
+            'image' => $filename,
+        ];
+
         $this->model->update('pegawai', $attr, $id);
         $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
         redirect($_SERVER['HTTP_REFERER']);
@@ -402,29 +546,34 @@ class Admin extends CI_Controller {
 
     function tambah_ekstra()
     {
-        
         // Koding Upload Foto
-        $ext = pathinfo($_FILES["image"]["name"]);
-        $filename = time() . '.' . $ext;
-        $path = 'assets/images/';
-
-        $config['upload_path']          = $path;
-        $config['allowed_types']        = 'jpg|png|jpeg';
+        $path = 'assets/images/ekstra';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
         $config['max_size']             = 2048;
-        $config['file_name']            = $filename;
 
         $this->load->library('upload', $config);
 
-        if(!$this->upload->do_upload('gambar')) {
+        if ( ! $this->upload->do_upload('image'))
+        {
             $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
             $this->session->set_flashdata('danger', $error);
             redirect($_SERVER['HTTP_REFERER']);
         }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
         // Akhir koding upload foto
 
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
         $attr = [
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
+            'name' => $this->input->post('name'),
+            'pembina' => $this->input->post('pembina'),
+            'hari' => $this->input->post('hari'),
+            'jam' => $this->input->post('jam'),
+            'image' => $filename,
         ];
        // echo "<pre>";
        // var_dump($attr);
@@ -441,33 +590,39 @@ class Admin extends CI_Controller {
       
 
         if(!empty($_FILES["foto"]["name"])) {
-            $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            $filename = time() . '.' . $ext;
-            $path = 'assets/images/';
+            $path = 'assets/images/ekstra';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
 
-            $config['upload_path']          = $path;
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = 1024;
-            $config['file_name']            = $filename;
+        $this->load->library('upload', $config);
 
-            $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
 
-            if(!$this->upload->do_upload('image')) {
-                $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-                $this->session->set_flashdata('danger', $error);
-            }
-            // Akhir koding upload foto
+        $filename = $path . '/' . $data['upload_data']['file_name'];
 
-            $attr = [
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
-            'image' => $path . $filename,
-            ];
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
             unlink($lok);
         }
         
+        $attr = [
+            'name' => $this->input->post('name'),
+            'pembina' => $this->input->post('pembina'),
+            'hari' => $this->input->post('hari'),
+            'jam' => $this->input->post('jam'),
+            'image' => $filename,
+        ];
         $this->model->update('ekstrakulikuler', $attr, $id);
         $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
         redirect($_SERVER['HTTP_REFERER']);

@@ -98,7 +98,7 @@
                             <li class="<?php echo $content=='galeri'? 'active' : ''?>"><a href="galeri">Galeri</a></li>
                             <li class="<?php echo $content=='kontak'? 'active' : ''?>"><a href="kontak">Kontak</a></li>
                             <li class="<?php echo $content=='kritik-saran'? 'active' : ''?>"><a href="kritik">Kritik & Saran</a></li>
-                            <li class="btn-cta"><a href="login"><span>Login</span></a></li>
+                            <li class="btn btn-cta"><a href="login"><span>Login</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -113,21 +113,10 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="row row-pb-md">
-                <div class="col-md-3 fh5co-widget">
-                    <h3>About Education</h3>
-                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+                <div class="col-md-5 fh5co-widget">
+                    <h3>SMPN 24 Banjarmasin</h3>
+                    <p>Beralamat Di Komplek Madani I, Jl. Sultan Adam Jalur II No. 05 RT.031/RW.003, Surgi Mufti, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan</p>
                 </div>
-                <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Learning</h3>
-                    <ul class="fh5co-footer-links">
-                        <li><a href="#">Course</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Meetups</a></li>
-                    </ul>
-                </div>
-
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
                     <h3>Learn &amp; Grow</h3>
                     <ul class="fh5co-footer-links">
@@ -150,13 +139,12 @@
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Legal</h3>
+                    <h3>Kunjungi Kami</h3>
                     <ul class="fh5co-footer-links">
-                        <li><a href="#">Find Designers</a></li>
-                        <li><a href="#">Find Developers</a></li>
-                        <li><a href="#">Teams</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
                     </ul>
                 </div>
             </div>

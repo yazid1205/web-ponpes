@@ -1,7 +1,7 @@
 <?php
 class Model extends CI_Model{
 	
-	public function mahasiswa()
+	public function user()
 	{
 		return $this->db->where('level', 2)->get('users');
 	}
@@ -38,6 +38,11 @@ class Model extends CI_Model{
     function staff() {
         return $this->db->get('pegawai');
     }
+
+    function galeri() {
+        return $this->db->get('galeri');
+    }
+
 }
 
 ?>

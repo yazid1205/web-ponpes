@@ -45,10 +45,10 @@
                         <tr>
                               <td><?=$x+1?></td>
                               <td><?=$d->name?></td>
-                              <td><?=$d->image?></td>
+                              <td><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"><img src="<?= base_url($d->image) ?>" height="50px" weight="50px"></a></td>
                               <td><?=$d->jmh?></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_data(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_fasilitas(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>
@@ -64,7 +64,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title">Tambah Admin</h6>
+                <h6 class="modal-title">Tambah Fasilitas</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                     <label>Jumlah</label>
-                    <input type="password" class="form-control" name="jmh">
+                    <input type="text" class="form-control" name="jmh">
                 </div>
             </div>
             <div class="modal-footer">
@@ -98,7 +98,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title">Edit Admin</h6>
+                <h6 class="modal-title">Edit Fasilitas</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -107,15 +107,15 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" value="<?=$d->name?>">
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" class="form-control" name="image" value="<?=$d->image?>">
                 </div>
                 <div class="form-group">
                     <label>Jumlah</label>
-                    <input type="password" class="form-control" name="jmh">
+                    <input type="text" class="form-control" name="jmh" value="<?=$d->jmh?>">
                 </div>
             </div>
             <div class="modal-footer">
@@ -129,7 +129,7 @@
 <?php endforeach ?>
 
 <script>
-function delete_data(id) {
+function delete_fasilitas(id) {
     var check = confirm('Yakin ingin menghapus data ?');
 
     if(check) {

@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <?php $this->load->view('layouts/head'); ?>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="tampilkanwaktu();setInterval('tampilkanwaktu()', 1000);">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -18,7 +18,63 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Waktu dan Tanggal</a>
+        <a href="index3.html" class="nav-link">        
+        <span id="clock"></span> 
+        <?php
+        $hari = date('l');
+        /*$new = date('l, F d, Y', strtotime($Today));*/
+        if ($hari=="Sunday") {
+         echo "Minggu";
+        }elseif ($hari=="Monday") {
+         echo "Senin";
+        }elseif ($hari=="Tuesday") {
+         echo "Selasa";
+        }elseif ($hari=="Wednesday") {
+         echo "Rabu";
+        }elseif ($hari=="Thursday") {
+         echo("Kamis");
+        }elseif ($hari=="Friday") {
+         echo "Jum'at";
+        }elseif ($hari=="Saturday") {
+         echo "Sabtu";
+        }
+        ?>,
+        <!--/*Selesai Menampilkan Hari*/
+
+        /*Menampilkan Tanggal*/-->
+        <?php
+        $tgl =date('d');
+        echo $tgl;
+        $bulan =date('F');
+        if ($bulan=="January") {
+         echo " Januari ";
+        }elseif ($bulan=="February") {
+         echo " Februari ";
+        }elseif ($bulan=="March") {
+         echo " Maret ";
+        }elseif ($bulan=="April") {
+         echo " April ";
+        }elseif ($bulan=="May") {
+         echo " Mei ";
+        }elseif ($bulan=="June") {
+         echo " Juni ";
+        }elseif ($bulan=="July") {
+         echo " Juli ";
+        }elseif ($bulan=="August") {
+         echo " Agustus ";
+        }elseif ($bulan=="September") {
+         echo " September ";
+        }elseif ($bulan=="October") {
+         echo " Oktober ";
+        }elseif ($bulan=="November") {
+         echo " November ";
+        }elseif ($bulan=="December") {
+         echo " Desember ";
+        }
+        $tahun=date('Y');
+        echo $tahun;
+        ?>
+      </a>
       </li>
     </ul>
 
@@ -82,33 +138,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
@@ -152,19 +181,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
           <li class="nav-item">
-            <a href="<?php echo base_url('admin/mahasiswa') ?>" class="nav-link <?= ($active == 'user') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-users"></i>
-              <p>Users</p>
+            <a href="<?php echo base_url('admin/user') ?>" class="nav-link <?= ($active == 'user') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Admin</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="<?php echo base_url('admin/kegiatan') ?>" class="nav-link <?= ($active == 'kegiatan') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-calendar-week"></i>
               <p>Kegiatan Sekolah</p>
             </a>
           </li>
           
+           <li class="nav-item">
+            <a href="<?php echo base_url('admin/galeri') ?>" class="nav-link <?= ($active == 'galeri') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-images"></i>
+              <p>Galeri Photo</p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="<?php echo base_url('admin/staff') ?>" class="nav-link <?= ($active == 'staff') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-users"></i>
@@ -174,21 +210,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
           
           <li class="nav-item">
             <a href="<?php echo base_url('admin/jadwal') ?>" class="nav-link <?= ($active == 'jadwal') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>Jadwal Pembelajaran</p>
             </a>
           </li>
           
            <li class="nav-item">
             <a href="<?php echo base_url('admin/fasilitas') ?>" class="nav-link <?= ($active == 'fasilitas') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-school"></i>
               <p>Fasilitas</p>
             </a>
           </li>
           
            <li class="nav-item">
             <a href="<?php echo base_url('admin/ekschool') ?>" class="nav-link <?= ($active == 'ekschool') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-medal"></i>
               <p>Ekschool</p>
             </a>
           </li>
@@ -258,5 +294,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
   <?php $this->load->view('layouts/foot'); ?>
+  \<script type="text/javascript">        
+    function tampilkanwaktu(){         //fungsi ini akan dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik    
+    var waktu = new Date();            //membuat object date berdasarkan waktu saat 
+    var sh = waktu.getHours() + "";    //memunculkan nilai jam, //tambahan script + "" supaya variable sh bertipe string sehingga bisa dihitung panjangnya : sh.length    //ambil nilai menit
+    var sm = waktu.getMinutes() + "";  //memunculkan nilai detik    
+    var ss = waktu.getSeconds() + "";  //memunculkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+    document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss);
+    }
+</script>
 </body>
 </html>

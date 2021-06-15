@@ -46,7 +46,7 @@
                         <tr>
                             <td><?php echo $x+1 ?></td>
                               <td><?=$d->judul?></td>
-                              <td><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="100%"></a></td>
+                              <td><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="50px" weight="50px"></a></td>
                               <td><?=$d->isi?></td>
                               <td><?=$d->id_komentar?></td>
                             <td>

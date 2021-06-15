@@ -101,17 +101,22 @@
                 </div>
                 <div class="form-group">
                     <label>Tempat Lahir</label>
-                    <input type="password" class="form-control" name="tempat_lahir">
+                    <input type="text" class="form-control" name="tempat_lahir">
                     <label>Tanggal Lahir</label>
-                    <input type="password" class="form-control" name="tgl_lahir">
+                    <input type="text" class="form-control" name="tgl_lahir">
                 </div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
-                    <input type="text" class="form-control" name="j_kelamin">
+                    <select class="form-control mr-2" name="j_kelamin">
+                    <option value="">-Pilih-</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
                 </div>
                 <div class="form-group">
                     <label>Telp</label>
                     <input type="text" class="form-control" name="telp">
+
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -140,7 +145,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title">Edit Admin</h6>
+                <h6 class="modal-title">Edit Pegawai</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -149,45 +154,49 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" value="<?=$d->name?>">
                 </div>
                 <div class="form-group">
                     <label>NIP</label>
-                    <input type="text" class="form-control" name="nip">
+                    <input type="text" class="form-control" name="nip" value="<?=$d->nip?>">
                 </div>
                 <div class="form-group">
                     <label>Pendidikan</label>
-                    <input type="text" class="form-control" name="pendidikan">
+                    <input type="text" class="form-control" name="pendidikan" value="<?=$d->pendidikan?>">
                 </div>
                 <div class="form-group">
                     <label>Jabatan</label>
-                    <input type="text" class="form-control" name="jabatan">
+                    <input type="text" class="form-control" name="jabatan" value="<?=$d->jabatan?>">
                 </div>
                 <div class="form-group">
                     <label>Tempat Lahir</label>
-                    <input type="password" class="form-control" name="tempat_lahir">
+                    <input type="text" class="form-control" name="tempat_lahir" value="<?=$d->tempat_lahir?>">
                     <label>Tanggal Lahir</label>
-                    <input type="password" class="form-control" name="tgl_lahir">
+                    <input type="text" class="form-control" name="tgl_lahir" value="<?=$d->tgl_lahir?>">
                 </div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
-                    <input type="text" class="form-control" name="j_kelamin">
+                    <select class="form-control mr-2" name="j_kelamin">
+                    <option value="<?=$d->j_kelamin?>"><?=$d->j_kelamin?></option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
                 </div>
                 <div class="form-group">
                     <label>Telp</label>
-                    <input type="text" class="form-control" name="telp">
+                    <input type="text" class="form-control" name="telp" value="<?=$d->telp?>">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" name="email">
+                    <input type="text" class="form-control" name="email" value="<?=$d->email?>">
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <input type="text" class="form-control" name="status">
+                    <input type="text" class="form-control" name="status" value="<?=$d->status?>">
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" class="form-control" name="image" value="<?=$d->image?>">
                 </div>
             </div>
             <div class="modal-footer">

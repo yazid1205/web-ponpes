@@ -81,14 +81,14 @@
                         <div id="fh5co-logo"><a href="home"><i class="icon-study"></i> SMPN 24 <span>Banjarmasin</span></a></div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
-                        <ul>
+                        <ul> 
                             <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="home">Home</a></li>
-                            <li class="has-dropdown">
-                                <a href="blog.html">Profil Sekolah</a>
-                                <ul class="dropdown">
-                                    <li><a href="profil">Profil</a></li>
-                                    <li><a href="#">Visi</a></li>
-                                    <li><a href="#">Misi</a></li>
+                            <li class="has-dropdown <?php echo $content=='profil'? 'active' : ''?>">
+                                <a href="sambutan">Profil Sekolah</a>
+                                <ul class="dropdown">                                    
+                                    <li><a href="visi">Profil</a></li>
+                                    <li><a href="sambutan">Sambutan</a></li>
+                                    <li><a href="visi">Visi-Misi</a></li>
                                 </ul>
                             </li>
                             <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="kegiatan">Berita</a></li>

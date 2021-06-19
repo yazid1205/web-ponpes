@@ -84,6 +84,27 @@
                     </div>
                     </a>
                 </div>
+                 <div class="col-md-12">
+                    <a href="<?=base_url('admin/jadwal')?>">
+                    <div class="card card-stats card-round card-box <?=($active == 'jadwal') ? 'callout callout-success' : '' ?>">
+                        <div class="card-body text-white bg-dark mb-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                        <i class="icon-grid text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-stats">
+                                    <h5><div class="numbers text-center">
+                                        <p class="card-category">JADWAL<br><?=$jadwal->num_rows()?></p>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
             </div>
         </div><div class="col-md-4">
             <div class="row">
@@ -175,27 +196,7 @@
                     </div>
                     </a>
                 </div>
-                <div class="col-md-12">
-                    <a href="<?=base_url('admin/jadwal')?>">
-                    <div class="card card-stats card-round card-box <?=($active == 'jadwal') ? 'callout callout-success' : '' ?>">
-                        <div class="card-body text-white bg-dark mb-3">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
-                                    </div>
-                                </div>
-                                <div class="col-7 col-stats">
-                                    <h5><div class="numbers text-center">
-                                        <p class="card-category">JADWAL<br><?=$jadwal->num_rows()?></p>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                </div>
+               
             </div>
         </div>
         

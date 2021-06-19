@@ -7,11 +7,9 @@
 		   			<div class="row">
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
-			   					<h1 class="heading-section">Contact us</h1>
-									<div class="text-center">
-									<h2><i class="phone"></i> (+62) -</h2>
-									<h2><i class="email"></i> smpn24@banjarmasin.ac.id</h2>
-								</div>
+			   					<a data-fancybox="gallery" href="<?= base_url('assets/22.png') ?>"><center><img src="assets/22.png" style="width:120px; height:150px; align-items: : center;"  alt=""></center></a>
+			   					<h1 class="heading-section">Drs. Hadjadiningrun M.Si</h1>
+									<h4>Mengucapkan Selamat Datang Di Website SMPN 24 Banjarmasin</h4>
 			   				</div>
 			   			</div>
 			   		</div>

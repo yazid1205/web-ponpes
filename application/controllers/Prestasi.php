@@ -21,6 +21,7 @@ class Prestasi extends CI_Controller {
 	public function index()
 	{
 		$this->data['content'] = "prestasi";
+        $this->data['prestasi'] = $this->db->get('prestasi');
 
 		$this->load->view('main', $this->data);
 	}

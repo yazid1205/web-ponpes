@@ -21,6 +21,7 @@ class Kegiatan extends CI_Controller {
 	public function index()
 	{
 		$this->data['content'] = "berita";
+		$this->data['info'] = $this->db->get('Kegiatan');
 
 		$this->load->view('main', $this->data);
 	}

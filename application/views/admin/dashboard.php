@@ -3,7 +3,7 @@
     $kegiatan        = $this->model->kegiatan();
     $fasilitas        = $this->model->fasilitas();
     $ekstra        = $this->model->ekstra();
-    $kegiatan        = $this->model->kegiatan();
+    $prestasi        = $this->model->prestasi();
     $jadwal        = $this->model->jadwal();
     $staff        = $this->model->staff();
     $galeri        = $this->model->galeri();
@@ -17,7 +17,6 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
             </div><!-- /.col -->
@@ -30,9 +29,9 @@
     <div class="card">
         <div class="card-header bg-white">
             <div class="row">
-                <div>
-                    <h4>Selamat datang <?php echo $this->auth->user()->name ?> <br> di halaman dashboard Admin Web Profile SMPN 24 Banjarmasin...</h4>
-                </div><br>
+                <div class="page-inner mt--5">
+                    <h4>Selamat datang <?php echo $this->auth->user()->name ?></h4> <br> <h6> Dihalaman Dashboard Admin Web Profile SMPN 24 Banjarmasin...</h6>
+                </div>
             </div>
         </div>
     </div>
@@ -95,8 +94,8 @@
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
-                                    <h5><div class="numbers text-center">
-                                        <p class="card-category">JADWAL<br><?=$jadwal->num_rows()?></p>
+                                    <div class="numbers text-center">
+                                        <h5><p class="card-category">JADWAL<br><?=$jadwal->num_rows()?></p>
                                         </h5>
                                     </div>
                                 </div>
@@ -106,7 +105,8 @@
                     </a>
                 </div>
             </div>
-        </div><div class="col-md-4">
+        </div>
+        <div class="col-md-4">
             <div class="row">
                 <div class="col-md-12">
                     <a href="<?=base_url('admin/staff')?>">
@@ -130,7 +130,7 @@
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?=base_url('admin/ekstra')?>">
+                    <a href="<?=base_url('admin/ekschool')?>">
                     <div class="card card-stats card-round card-box <?=($active == 'ekstra') ? 'callout callout-success' : '' ?>">
                         <div class="card-body text-white bg-info mb-3">
                             <div class="row">
@@ -196,11 +196,29 @@
                     </div>
                     </a>
                 </div>
-               
+               <div class="col-md-12">
+                    <a href="<?=base_url('admin/prestasi')?>">
+                    <div class="card card-stats card-round card-box <?=($active == 'prestasi') ? 'callout callout-success' : '' ?>">
+                        <div class="card-body text-white bg-secondary mb-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                        <i class="icon-grid text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-stats">
+                                    <div class="numbers text-center">
+                                        <h5><p class="card-category">Prestasi<br><?=$prestasi->num_rows()?></p>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
             </div>
         </div>
-        
-    </div>
-</div>
+
     </div>
 </div>

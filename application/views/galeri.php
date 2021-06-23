@@ -8,7 +8,7 @@
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
 			   					<h1 class="heading-section">Galeri &amp; Photo</h1>
-									<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
+									<h2>Selamat Datang Di Halaman Galeri SMPN 24 Banjarmasin</h2>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -17,75 +17,16 @@
 		  	</ul>
 	  	</div>
 	</aside>
-
-	<div id="fh5co-blog">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Blog &amp; Events</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row row-padded-mb">
-				<div class="col-md-4 animate-box">
-					<div class="fh5co-event">
-						<div class="date text-center"><span>15<br>Mar.</span></div>
-						<h3><a href="#">USA, International Triathlon Event</a></h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#">Read More</a></p>
-					</div>
-				</div>
-				<div class="col-md-4 animate-box">
-					<div class="fh5co-event">
-						<div class="date text-center"><span>15<br>Mar.</span></div>
-						<h3><a href="#">USA, International Triathlon Event</a></h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#">Read More</a></p>
-					</div>
-				</div>
-				<div class="col-md-4 animate-box">
-					<div class="fh5co-event">
-						<div class="date text-center"><span>15<br>Mar.</span></div>
-						<h3><a href="#">New Device Develope by Microsoft</a></h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#">Read More</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-img-holder" style="background-image: url(images/project-1.jpg);"></a>
-						<div class="blog-text">
-							<h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-							<span class="posted_on">March. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div> 
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-img-holder" style="background-image: url(images/project-2.jpg);"></a>
-						<div class="blog-text">
-							<h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-							<span class="posted_on">March. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div> 
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-img-holder" style="background-image: url(images/project-3.jpg);"></a>
-						<div class="blog-text">
-							<h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-							<span class="posted_on">March. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+    <div id="fh5co-gallery" class="fh5co-bg-section">
+        <div class="row text-center">
+            <h2><span>Gallery Photo</span></h2>
+        </div>
+        <div class="row">
+        	 <?php foreach ($galeri->result() as $x => $d): ?>
+            <div class="col-md-3 col-padded text-center">
+                <a data-fancybox="gallery" href="<?= base_url($d->image) ?>"> <img src="<?= base_url($d->image) ?>"  height="200px" weight="200px"></a><br><?=$d->caption?>
+            </div>
+                        <?php endforeach ?>
+        </div>
+    </div>

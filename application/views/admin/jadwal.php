@@ -7,8 +7,8 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                <li class="breadcrumb-item active">Admin</li>
+                <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
+                <li class="breadcrumb-item active">Jadwal</li>
             </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -79,7 +79,15 @@
                 </div>
                 <div class="form-group">
                     <label>Kelas</label>
-                    <input type="text" class="form-control" name="kelas">
+                    <select class="form-control mr-2" name="kelas">
+                    <option value="">-Pilih Kelas-</option>
+                    <option value="VII A">VII A</option>
+                    <option value="VII B">VII B</option>
+                    <option value="VIII A">VIII A</option>
+                    <option value="VIII B">VIII B</option>
+                    <option value="IX A">IX A</option>
+                    <option value="IX B">IX B</option>
+                </select>
                 </div>
                 <div class="form-group">
                     <label>Semester</label>
@@ -117,7 +125,15 @@
                 </div>
                 <div class="form-group">
                     <label>Kelas</label>
-                    <input type="text" class="form-control" name="kelas" value="<?=$d->kelas?>">
+                    <select class="form-control mr-2" name="kelas">
+                    <option value="<?=$d->kelas?>"><?=$d->kelas?></option>
+                    <option value="VII A">VII A</option>
+                    <option value="VII B">VII B</option>
+                    <option value="VIII A">VIII A</option>
+                    <option value="VIII B">VIII B</option>
+                    <option value="IX A">IX A</option>
+                    <option value="IX B">IX B</option>
+                </select>
                 </div>
                 <div class="form-group">
                     <label>Semester</label>

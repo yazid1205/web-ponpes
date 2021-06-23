@@ -21,6 +21,7 @@ class Galeri extends CI_Controller {
 	public function index()
 	{
 		$this->data['content'] = "galeri";
+        $this->data['galeri'] = $this->db->get("galeri");
 
 		$this->load->view('main', $this->data);
 	}

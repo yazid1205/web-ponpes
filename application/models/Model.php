@@ -23,6 +23,10 @@ class Model extends CI_Model{
         return $this->db->get('kegiatan');
     }
 
+    function prestasi() {
+        return $this->db->get('prestasi');
+    }
+
     function ekstra() {
         return $this->db->get('ekstrakulikuler');
     }
@@ -33,6 +37,11 @@ class Model extends CI_Model{
 
     function jadwal() {
         return $this->db->get('jadwal');
+    }
+    
+    function get_kelas($kelas) {
+        $res = $this->db->query("SELECT * FROM jadwal WHERE kelas ='".$kelas."'");
+        return $res->result();
     }
 
     function staff() {

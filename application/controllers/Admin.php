@@ -230,6 +230,108 @@ class Admin extends CI_Controller {
         echo 1;
     }
 
+    public function prestasi() 
+    {
+        $data['page'] = 'admin/prestasi';
+        $data['active'] = 'prestasi';
+        $data['prestasi'] = $this->model->prestasi();
+
+        $this->load->view('layouts/app', $data);
+    }
+
+    public function tambah_prestasi()
+    {        
+       // Koding Upload Foto
+        $path = 'assets/images/prestasi';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
+        $attr = [
+            'name_peserta' => $this->input->post('name'),
+            'name_lomba' => $this->input->post('lomba'),
+            'prestasi' => $this->input->post('prestasi'),
+            'tingkat' => $this->input->post('tingkat'),
+            'image' => $filename,
+        ];
+       // echo "<pre>";
+       // var_dump($attr);
+        //exit();
+
+        $this->db->insert('prestasi', $attr);
+        $this->session->set_flashdata('success', 'Berhasil Menambahkan Data');
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function update_prestasi($id)
+    {
+       $d = $this->db->get_where('prestasi', ['id' => $id])->row();
+      
+
+        if(!empty($_FILES["gambar"]["name"])) {
+            // Koding Upload Foto
+        $path = 'assets/images/prestasi';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+            // Akhir koding upload foto
+               
+            //Koding hapus gambar lama
+            file_exists($lok=FCPATH.'/'. $d->image);
+            unlink($lok);
+        }
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+        
+        $attr = [
+            'name_peserta' => $this->input->post('name'),
+            'name_lomba' => $this->input->post('lomba'),
+            'prestasi' => $this->input->post('prestasi'),
+            'tingkat' => $this->input->post('tingkat'),
+            'image' => $filename,
+        ];
+        
+        $this->model->update('prestasi', $attr, $id);
+        $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function delete_prestasi()
+    {
+        $this->model->delete('prestasi', $this->input->post('id'));
+        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
+        echo 1;
+    }
+
         public function galeri() 
     {
         $data['page'] = 'admin/galeri';
@@ -282,7 +384,7 @@ class Admin extends CI_Controller {
        $d = $this->db->get_where('galeri', ['id' => $id])->row();
       
 
-        if(!empty($_FILES["gambar"]["name"])) {
+        if(!empty($_FILES["image"]["name"])) {
             // Koding Upload Foto
         $path = 'assets/images/galeri';
         $config['upload_path']         = $path;

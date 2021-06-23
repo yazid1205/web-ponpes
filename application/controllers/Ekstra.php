@@ -20,7 +20,8 @@ class Ekstra extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "ekscool";
+		$this->data['content'] = "ekscool"; 
+		$this->data['ekstra'] = $this->db->get('ekstrakulikuler');
 
 		$this->load->view('main', $this->data);
 	}

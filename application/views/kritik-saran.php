@@ -8,7 +8,7 @@
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
 			   					<h1 class="heading-section">Kritik &amp; Saran</h1>
-									<h2>Silahkan Login Terebih Dahulu Untuk Menyampaikan Kritik saran anda</h2>
+									<h2>Silahkan Login Terlebih Dahulu Untuk Menyampaikan Kritik saran anda</h2>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -30,7 +30,7 @@
 
 				</div>
 				<div class="col-md-6 animate-box">
-					<h3>Get In Your Opinions</h3>
+					<h3>Whats In Your Opinions</h3>
 					<form action="#">
 						<div class="row form-group">
 							<div class="col-md-6">

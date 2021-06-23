@@ -1,92 +1,173 @@
-<aside id="fh5co-hero">
-		<div class="flexslider">
-			<ul class="slides">
-		   	<li style="background-image: url(images/img_bg_4.jpg);">
-		   		<div class="overlay-gradient"></div>
-		   		<div class="container">
-		   			<div class="row">
-			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
-			   				<div class="slider-text-inner">
-			   					<h1 class="heading-section">Jadwal &amp; Pelajaran</h1>
-									<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-			   				</div>
-			   			</div>
-			   		</div>
-		   		</div>
-		   	</li>
-		  	</ul>
-	  	</div>
-	</aside>
 
-	<div id="fh5co-blog">
+	<div id="fh5co-blog" class="fh5co-counters" style="background-image: url(images/img_bg_3.jpg);" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Blog &amp; Events</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<h2>Jadwal Mata Pelajaran</h2>
+					<p>Jadwal Mata Pelajaran SMPN 24 Banjarmasin Tahun Akademik 2020/2021</p>
 				</div>
 			</div>
 			<div class="row row-padded-mb">
 				<div class="col-md-4 animate-box">
 					<div class="fh5co-event">
-						<div class="date text-center"><span>15<br>Mar.</span></div>
-						<h3><a href="#">USA, International Triathlon Event</a></h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#">Read More</a></p>
+						<div class="date text-center"><span>Kelas<br>VII A</span></div>
+						<h3><a href="#">Nama Wali Kelas</a></h3>
+						<p><table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>                               
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tujuha->result() as $x => $d): ?>
+                        <tr>
+                              <td><?=$x+1?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table></p>
 					</div>
 				</div>
 				<div class="col-md-4 animate-box">
 					<div class="fh5co-event">
-						<div class="date text-center"><span>15<br>Mar.</span></div>
-						<h3><a href="#">USA, International Triathlon Event</a></h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#">Read More</a></p>
+						<div class="date text-center"><span>Kelas<br>VII B</span></div>
+						<h3><a href="#">Nama Wali Kelas</a></h3>
+						<p><table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tujuhb->result() as $x => $d): ?>
+                        <tr>
+                              <td><?=$x+1?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table></p>
 					</div>
 				</div>
 				<div class="col-md-4 animate-box">
 					<div class="fh5co-event">
-						<div class="date text-center"><span>15<br>Mar.</span></div>
-						<h3><a href="#">New Device Develope by Microsoft</a></h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#">Read More</a></p>
+						<div class="date text-center"><span>Kelas<br>VIII A</span></div>
+						<h3><a href="#">Nama Wali Kelas</a></h3>
+						<p><table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($delapana->result() as $x => $d): ?>
+                        <tr>
+                              <td><?=$x+1?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table></p>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-img-holder" style="background-image: url(images/project-1.jpg);"></a>
-						<div class="blog-text">
-							<h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-							<span class="posted_on">March. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div> 
+			<div class="row row-padded-mb">
+				<div class="col-md-4 animate-box">
+					<div class="fh5co-event">
+						<div class="date text-center"><span>Kelas<br>VIII B</span></div>
+						<h3><a href="#">Nama Wali Kelas</a></h3>
+						<p><table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($delapanb->result() as $x => $d): ?>
+                        <tr>
+                              <td><?=$x+1?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table></p>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-img-holder" style="background-image: url(images/project-2.jpg);"></a>
-						<div class="blog-text">
-							<h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-							<span class="posted_on">March. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div> 
+				<div class="col-md-4 animate-box">
+					<div class="fh5co-event">
+						<div class="date text-center"><span>Kelas<br>IX A</span></div>
+						<h3><a href="#">Nama Wali Kelas</a></h3>
+						<p><table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($sembilana->result() as $x => $d): ?>
+                        <tr>
+                              <td><?=$x+1?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table></p>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-img-holder" style="background-image: url(images/project-3.jpg);"></a>
-						<div class="blog-text">
-							<h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-							<span class="posted_on">March. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div> 
+				<div class="col-md-4 animate-box">
+					<div class="fh5co-event">
+						<div class="date text-center"><span>Kelas<br>IX A</span></div>
+						<h3><a href="#">Nama Wali Kelas</a></h3>
+						<p><table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Mata Pelajaran</th>
+                          <th>Semester</th>
+                          <th>Tahun Ajaran</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($sembilanb->result() as $x => $d): ?>
+                        <tr>
+                              <td><?=$x+1?></td>
+                              <td><?=$d->mapel?></td>
+                              <td><?=$d->semester?></td>
+                              <td><?=$d->tahun_ajaran?></td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table></p>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 

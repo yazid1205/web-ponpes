@@ -37,6 +37,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
     
+    <link rel="stylesheet" href="<?php echo base_url('assets/') ?>plugins/fontawesome-free/css/all.min.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="<?php echo base_url('assets/') ?>css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -84,9 +85,9 @@
                         <ul> 
                             <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="home">Home</a></li>
                             <li class="has-dropdown <?php echo $content=='profil'? 'active' : ''?>">
-                                <a href="sambutan">Profil Sekolah</a>
+                                <a href="profil">Profil Sekolah</a>
                                 <ul class="dropdown">                                    
-                                    <li><a href="visi">Profil</a></li>
+                                    <li><a href="profil">Profil</a></li>
                                     <li><a href="sambutan">Sambutan</a></li>
                                     <li><a href="visi">Visi-Misi</a></li>
                                 </ul>
@@ -118,23 +119,23 @@
                     <p>Beralamat Di Komplek Madani I, Jl. Sultan Adam Jalur II No. 05 RT.031/RW.003, Surgi Mufti, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan</p>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Learn &amp; Grow</h3>
+                    <h3>Learn &amp; Education</h3>
                     <ul class="fh5co-footer-links">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Handbook</a></li>
-                        <li><a href="#">Held Desk</a></li>
+                        <li><a href="jadwal">Jadwal</a></li>
+                        <li><a href="ekscool">Ekstrakulikuler</a></li>
+                        <li><a href="prestasi">Prestasi</a></li>
+                        <li><a href="galeri">Galeri</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Engage us</h3>
+                    <h3>School &amp; Info</h3>
                     <ul class="fh5co-footer-links">
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Visual Assistant</a></li>
-                        <li><a href="#">System Analysis</a></li>
-                        <li><a href="#">Advertise</a></li>
+                        <li><a href="home">Home</a></li>
+                        <li><a href="profil">Profil</a></li>
+                        <li><a href="berita">Berita</a></li>
+                        <li><a href="kontak">Kontak</a></li>
+                        <li><a href="kritik">Kritik Saran</a></li>
                     </ul>
                 </div>
 

@@ -159,13 +159,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo base_url('assets/') ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url(''.$this->auth->user()->image )?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $this->auth->user()->name ?></a>
         </div>
       </div>
-
+ 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -193,7 +193,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <p>Kegiatan Sekolah</p>
             </a>
           </li>
-          
+
+          <li class="nav-item">
+            <a href="<?php echo base_url('admin/prestasi') ?>" class="nav-link <?= ($active == 'prestasi') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-medal"></i>
+              <p>Prestasi</p>
+            </a>
+          </li>
+
            <li class="nav-item">
             <a href="<?php echo base_url('admin/galeri') ?>" class="nav-link <?= ($active == 'galeri') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-images"></i>
@@ -224,7 +231,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           
            <li class="nav-item">
             <a href="<?php echo base_url('admin/ekschool') ?>" class="nav-link <?= ($active == 'ekschool') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-medal"></i>
+              <i class="nav-icon fas fa-star"></i>
               <p>Ekschool</p>
             </a>
           </li>
@@ -283,11 +290,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021 <a href="#">SMPN 24 BANJARMASIN</a>.</strong> All rights reserved.
+    <center><strong>Copyright &copy; 2021 <a href="#">SMPN 24 BANJARMASIN</a>.</strong> All rights reserved.</center>
   </footer>
 </div>
 <!-- ./wrapper -->

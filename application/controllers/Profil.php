@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Profil extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,8 +20,7 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "home";
-		$this->data['info'] = $this->db->get('Kegiatan');
+		$this->data['content'] = "profil";
 
 		$this->load->view('main', $this->data);
 	}

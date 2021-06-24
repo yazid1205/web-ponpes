@@ -1,21 +1,32 @@
     <aside id="fh5co-hero">
         <div class="flexslider">
             <ul class="slides">                
-                <?php foreach ($info->result() as $x => $d): ?>
             <li style="background-image: url(images/img_bg_1.jpg);">
                 <div class="overlay-gradient"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center slider-text">
                             <div class="slider-text-inner">
-                                <h1>Judul Bacaan</h1>
-                                    <h2>Isi bacaan singkat <a href="http://freehtml5.co/" target="_blank">selanjutnya...</a></h2>
-                                    <p><a class="btn btn-primary btn-lg" href="#">Baca Lebih Lanjut ></a></p>
+                                <h1>Selamat Datang Di</h1>
+                                    <h2>Website  <a href="home" target="_blank">SMPN 24 Banjarmasin</a> Silahkan Jelajah dan Cari Informasi Lengkap Terkain Sekolah Kami</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-            </li>       
+            </li>
+            <li style="background-image: url(images/img_bg_2.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center slider-text">
+                            <div class="slider-text-inner">
+                                <h1>Tersedia Berbagai Info</h1>
+                                    <h2>Kegiatan Prestasi Serta Galeri Photo SMPN 24 Banjarmasin Silahkan Jelajah dan Cari Informasi Lengkap Terkain Sekolah Kami</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>              
             </ul>
         </div>
     </aside>
@@ -24,11 +35,12 @@
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Halaman Berita</h2>
+                    <h2>Berita Terbaru</h2>
                     <p>Berisi tentang informasi kegiatan sekolah atau informasi lainya terkait SMPN 24 Banjarmasi.</p>
                 </div>
             </div>
             <div class="row row-padded-mb">
+                <?php foreach ($info->result() as $x => $d): ?>
                 <div class="col-md-4 animate-box">
                     <div class="fh5co-event">
                         <div class="date text-center"><span><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="50px" weight="50px"></a></span></div>
@@ -56,18 +68,18 @@
                         </div>
                         <div class="col-md-3 col-sm-6 text-center animate-box">
                             <span class="icon"><i class="icon-study"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="3700" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Students Enrolled</span>
+                            <span class="fh5co-counter js-counter" data-from="0" data-to="956" data-speed="5000" data-refresh-interval="50"></span>
+                            <span class="fh5co-counter-label">Siswa Lulusan</span>
                         </div>
                         <div class="col-md-3 col-sm-6 text-center animate-box">
                             <span class="icon"><i class="icon-bulb"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="5034" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Classes Complete</span>
+                            <span class="fh5co-counter js-counter" data-from="0" data-to="24" data-speed="5000" data-refresh-interval="50"></span>
+                            <span class="fh5co-counter-label">Ruang Belajar</span>
                         </div>
                         <div class="col-md-3 col-sm-6 text-center animate-box">
                             <span class="icon"><i class="icon-head"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="1080" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Certified Teachers</span>
+                            <span class="fh5co-counter js-counter" data-from="0" data-to="34" data-speed="5000" data-refresh-interval="50"></span>
+                            <span class="fh5co-counter-label">Tenaga Pengajar</span>
                         </div>
                     </div>
                 </div>

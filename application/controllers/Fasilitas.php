@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kritik extends CI_Controller {
+class Fasilitas extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,20 +20,9 @@ class Kritik extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "kritik-saran";
+		$this->data['content'] = "fasilitas";
+        $this->data['fasilitas'] = $this->db->get("fasilitas");
 
 		$this->load->view('main', $this->data);
-	}
-	public function tambah_kritik(){
-		
-		$attr = [
-		'id_user' => $this->input->post('name'),
-        'kritik' => $this->input->post('kritik'),
-        'saran' => $this->input->post('saran'),
-            ];
-       
-
-        $this->db->insert('kriitik', $attr);
-        redirect($_SERVER['HTTP_REFERER']);
 	}
 }

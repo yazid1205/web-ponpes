@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kritik extends CI_Controller {
+class DetailBerita extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,22 +18,22 @@ class Kritik extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->data['content'] = "kritik-saran";
+	public function index($id) {
+        $this->data['content'] = "content_berita";
+        $this->data['page'] = "berita";
 
-		$this->load->view('main', $this->data);
-	}
-	public function tambah_kritik(){
+        $this->data['beri'] = $this->db->query("SELECT * FROM kegiatan WHERE id = '".$id."'");
+
+        $this->load->view('main', $this->data);
+    }
+    public function tambah_komentar(){
 		
 		$attr = [
 		'id_user' => $this->input->post('name'),
-        'kritik' => $this->input->post('kritik'),
-        'saran' => $this->input->post('saran'),
+        'isi' => $this->input->post('isi'),
             ];
-       
 
-        $this->db->insert('kriitik', $attr);
+        $this->db->insert('komentar', $attr);
         redirect($_SERVER['HTTP_REFERER']);
 	}
 }

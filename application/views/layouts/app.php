@@ -235,6 +235,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <p>Ekschool</p>
             </a>
           </li>
+
+           <li class="nav-item">
+            <a href="<?php echo base_url('admin/kritik') ?>" class="nav-link <?= ($active == 'kritik') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-gavel"></i>
+              <p>Keritik & Saran</p>
+            </a>
+          </li>
+          
+           <li class="nav-item">
+            <a href="<?php echo base_url('admin/komentar') ?>" class="nav-link <?= ($active == 'komentar') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-comments"></i>
+              <p>Komentar</p>
+            </a>
+          </li>
           
           <li class="nav-item">
             <a href="<?php echo base_url('login/logout') ?>" class="nav-link">

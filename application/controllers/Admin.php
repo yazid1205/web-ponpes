@@ -786,4 +786,36 @@ class Admin extends CI_Controller {
         echo 1;
     }
 
+     public function kritik() 
+    {
+        $data['page'] = 'admin/kritik';
+        $data['active'] = 'kritik';
+        $data['kritik'] = $this->model->kritik();
+
+        $this->load->view('layouts/app', $data);
+    }
+
+     public function delete_kritik()
+    {
+        $this->model->delete('kriitik', $this->input->post('id'));
+        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
+        echo 1;
+    }
+
+     public function komentar() 
+    {
+        $data['page'] = 'admin/komentar';
+        $data['active'] = 'komentar';
+        $data['komentar'] = $this->model->komentar();
+
+        $this->load->view('layouts/app', $data);
+    }
+
+      public function delete_komentar()
+    {
+        $this->model->delete('komentar', $this->input->post('id'));
+        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
+        echo 1;
+    }
+
 }

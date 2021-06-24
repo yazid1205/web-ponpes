@@ -52,6 +52,14 @@ class Model extends CI_Model{
         return $this->db->get('galeri');
     }
 
+    function kritik() {
+        return $this->db->get('kriitik');
+    }
+
+    function komentar() {
+        return $this->db->get('komentar');
+    }
+
 }
 
 ?>

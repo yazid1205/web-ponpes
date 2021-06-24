@@ -90,6 +90,8 @@
                                     <li><a href="profil">Profil</a></li>
                                     <li><a href="sambutan">Sambutan</a></li>
                                     <li><a href="visi">Visi-Misi</a></li>
+                                    <li><a href="staff">Tenaga Pengajar & Staff</a></li>
+                                    <li><a href="fasilitas">Fasilitas</a></li>
                                 </ul>
                             </li>
                             <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="kegiatan">Berita</a></li>

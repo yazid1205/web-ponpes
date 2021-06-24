@@ -7,6 +7,8 @@
     $jadwal        = $this->model->jadwal();
     $staff        = $this->model->staff();
     $galeri        = $this->model->galeri();
+    $kritik        = $this->model->kritik();
+    $komentar        = $this->model->komentar();
 ?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -104,6 +106,27 @@
                     </div>
                     </a>
                 </div>
+                <div class="col-md-12">
+                    <a href="<?=base_url('admin/komentar')?>">
+                    <div class="card card-stats card-round card-box <?=($active == 'komentar') ? 'callout callout-success' : '' ?>">
+                        <div class="card-body text-white bg-dark mb-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                        <i class="icon-grid text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-stats">
+                                    <div class="numbers text-center">
+                                        <h5><p class="card-category">KOMENTAR<br><?=$komentar->num_rows()?></p>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
@@ -142,6 +165,27 @@
                                 <div class="col-7 col-stats">
                                     <div class="numbers text-center">
                                         <h5><p class="card-category">EKTRAKULIKULER<br><?=$ekstra->num_rows()?></p>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <a href="<?=base_url('admin/kritik')?>">
+                    <div class="card card-stats card-round card-box <?=($active == 'kritik') ? 'callout callout-success' : '' ?>">
+                        <div class="card-body text-white bg-warning mb-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                        <i class="icon-grid text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-stats">
+                                    <div class="numbers text-center">
+                                        <h5><p class="card-category">KRITIK & SARAN<br><?=$kritik->num_rows()?></p>
                                         </h5>
                                     </div>
                                 </div>

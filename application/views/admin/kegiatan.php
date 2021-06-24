@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <label>Isi</label>
-                    <input type="text" class="form-control" name="isi">
+                    <textarea class="form-control" name="isi"></textarea>
                 </div>
             </div>
             <div class="modal-footer">

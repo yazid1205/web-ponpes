@@ -31,36 +31,26 @@
 				</div>
 				<div class="col-md-6 animate-box">
 					<h3>Whats In Your Opinions</h3>
-					<form action="#">
-						<div class="row form-group">
-							<div class="col-md-6">
-								<!-- <label for="fname">First Name</label> -->
-								<input type="text" id="fname" class="form-control" placeholder="Your firstname">
-							</div>
-							<div class="col-md-6">
-								<!-- <label for="lname">Last Name</label> -->
-								<input type="text" id="lname" class="form-control" placeholder="Your lastname">
-							</div>
-						</div>
-
+					<form  action="<?php echo base_url('kritik/tambah_kritik') ?>" method="post" >
+						
 						<div class="row form-group">
 							<div class="col-md-12">
-								<!-- <label for="email">Email</label> -->
-								<input type="text" id="email" class="form-control" placeholder="Your email address">
+								<!-- <label for="subject">Subject</label> -->
+								<input type="text" name="name" class="form-control" placeholder="Masukkan Nama Anda">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="subject">Subject</label> -->
-								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+								<input type="text" name="kritik" class="form-control" placeholder="Masukkan Kritik Anda">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="message">Message</label> -->
-								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+								<textarea name="saran" id="message" cols="30" rows="10" class="form-control" placeholder="Masukkan Saran Anda"></textarea>
 							</div>
 						</div>
 						<div class="form-group">

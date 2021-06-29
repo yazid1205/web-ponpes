@@ -15,6 +15,16 @@ class Admin extends CI_Controller {
         $data['page'] = 'admin/dashboard';
         $data['active'] = 'dashboard';
 
+        $this->data['komen'] = $this->db->get('komentar');
+
+        $this->load->view('layouts/app', $data);
+    }
+
+    public function dashboard() 
+    {
+        $data['page'] = 'admin/dashboard';
+        $data['active'] = 'dashboard';
+
         $this->load->view('layouts/app', $data);
     }
 

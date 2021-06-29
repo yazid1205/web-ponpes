@@ -23,14 +23,16 @@ class DetailBerita extends CI_Controller {
         $this->data['page'] = "berita";
 
         $this->data['beri'] = $this->db->query("SELECT * FROM kegiatan WHERE id = '".$id."'");
+        $this->data['komen'] = $this->db->query("SELECT * FROM komentar WHERE id_kegiatan = '".$id."'");
 
         $this->load->view('main', $this->data);
     }
     public function tambah_komentar(){
 		
 		$attr = [
-		'id_user' => $this->input->post('name'),
-        'isi' => $this->input->post('isi'),
+		'id_kegiatan' => $this->input->post('id'),
+		'id_user' => $this->input->post('email'),
+        'isi' => $this->input->post('komentar'),
             ];
 
         $this->db->insert('komentar', $attr);

@@ -44,9 +44,9 @@
                 <div class="col-md-4 animate-box">
                     <div class="fh5co-event">
                         <div class="date text-center"><span><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="50px" weight="50px"></a></span></div>
-                        <h3><a href="#"><?= $d->judul ?></a></h3>
+                        <h3><?= $d->judul ?></h3>
                         <p><?= $d->isi ?></p>
-                        <p><a href="#">Read More</a></p>
+                        <p><a  href="<?php echo base_url('DetailBerita/index/' .$d->id); ?>">Read More</a></p>
                     </div>
                 </div>
               <?php endforeach ?>

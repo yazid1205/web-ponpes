@@ -121,7 +121,7 @@
                     <p>Beralamat Di Komplek Madani I, Jl. Sultan Adam Jalur II No. 05 RT.031/RW.003, Surgi Mufti, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan</p>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Learn &amp; Education</h3>
+                    <h3>Aktivitas Sekolah</h3>
                     <ul class="fh5co-footer-links">
                         <li><a href="jadwal">Jadwal</a></li>
                         <li><a href="ekscool">Ekstrakulikuler</a></li>
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>School &amp; Info</h3>
+                    <h3>Info Sekolah</h3>
                     <ul class="fh5co-footer-links">
                         <li><a href="home">Home</a></li>
                         <li><a href="profil">Profil</a></li>
@@ -156,7 +156,7 @@
                 <div class="col-md-12 text-center">
                     <p>
                         <small class="block">Copyright &copy; 2021 <a href="#">SMPN 24 BANJARMASIN</a>.</strong> All rights reserved.</small> 
-                        <small class="block">CREAT by <a href="$" target="_blank">Siti Zulaika</a></small>
+                        <small class="block">CREATE by <a href="$" target="_blank">Siti Zulaika</a></small>
                     </p>
                 </div>
             </div>

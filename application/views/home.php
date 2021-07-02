@@ -1,3 +1,8 @@
+<?php
+    $ekstra        = $this->model->ekstra();
+    $prestasi        = $this->model->prestasi();
+    $staff        = $this->model->staff();
+?>
     <aside id="fh5co-hero">
         <div class="flexslider">
             <ul class="slides">                
@@ -60,25 +65,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
-                            <span class="icon"><i class="icon-world"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="3297" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Foreign Followers</span>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
+                    <div class="row">                        
+                        <div class="col-md-4 col-sm-6 text-center animate-box">
                             <span class="icon"><i class="icon-study"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="956" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Siswa Lulusan</span>
+                            <span class="fh5co-counter js-counter" data-from="0" data-to="<?=$prestasi->num_rows()?>" data-speed="5000" data-refresh-interval="50"></span>
+                            <span class="fh5co-counter-label">Prestasi</span>
                         </div>
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
+                        <div class="col-md-4 col-sm-6 text-center animate-box">
                             <span class="icon"><i class="icon-bulb"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="24" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Ruang Belajar</span>
+                            <span class="fh5co-counter js-counter" data-from="0" data-to="<?=$ekstra->num_rows()?>" data-speed="5000" data-refresh-interval="50"></span>
+                            <span class="fh5co-counter-label">Ekstrakulikuler</span>
                         </div>
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
+                        <div class="col-md-4 col-sm-6 text-center animate-box">
                             <span class="icon"><i class="icon-head"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="34" data-speed="5000" data-refresh-interval="50"></span>
+                            <span class="fh5co-counter js-counter" data-from="0" data-to="<?=$staff->num_rows()?>" data-speed="5000" data-refresh-interval="50"></span>
                             <span class="fh5co-counter-label">Tenaga Pengajar</span>
                         </div>
                     </div>

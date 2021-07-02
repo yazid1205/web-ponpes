@@ -4,8 +4,8 @@
     $fasilitas        = $this->model->fasilitas();
     $ekstra        = $this->model->ekstra();
     $prestasi        = $this->model->prestasi();
-    $jadwal        = $this->model->jadwal();
     $staff        = $this->model->staff();
+    $jadwal        = $this->model->jadwal();
     $galeri        = $this->model->galeri();
     $kritik        = $this->model->kritik();
     $komentar        = $this->model->komentar();

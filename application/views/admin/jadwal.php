@@ -34,10 +34,11 @@
                     <thead>
                         <tr>
                           <th>No</th>
-                          <th>Mata Pelajaran</th>
-                          <th>Kelas</th>
+                          <th>Wali Kelas</th>
+                          <th>Kelas</th> 
                           <th>Semester</th>
                           <th>Tahun Ajaran</th>
+                          <th>Jadwal</th>
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
@@ -45,10 +46,11 @@
                         <?php foreach ($jadwal->result() as $x => $d): ?>
                         <tr>
                               <td><?=$x+1?></td>
-                              <td><?=$d->mapel?></td>
+                              <td><?=$d->wali?></td>
                               <td><?=$d->kelas?></td>
                               <td><?=$d->semester?></td>
                               <td><?=$d->tahun_ajaran?></td>
+                              <td><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"><img src="<?= base_url($d->image) ?>" height="50px" weigth="50px"></a></td>
                             <td>
                                 <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_jadwal(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
@@ -74,8 +76,8 @@
             <form action="<?php echo base_url('admin/tambah_jadwal') ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Mata Pelajaran</label>
-                    <input type="text" class="form-control" name="mapel">
+                    <label>Nama Wali</label>
+                    <input type="text" class="form-control" name="wali">
                 </div>
                 <div class="form-group">
                     <label>Kelas</label>
@@ -96,6 +98,10 @@
                 <div class="form-group">
                     <label>Tahun Ajaran</label>
                     <input type="text" class="form-control" name="tahun">
+                </div>
+                <div class="form-group">
+                    <label>Upload Jadwal</label>
+                    <input type="file" class="form-control" name="image">
                 </div>
             </div>
             <div class="modal-footer">
@@ -120,8 +126,8 @@
             <form action="<?php echo base_url('admin/update_jadwal/' . $d->id) ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                <div class="form-group">
-                    <label>Mata Pelajaran</label>
-                    <input type="text" class="form-control" name="mapel" value="<?=$d->mapel?>">
+                    <label>Nama Wali</label>
+                    <input type="text" class="form-control" name="wali" value="<?=$d->wali?>">
                 </div>
                 <div class="form-group">
                     <label>Kelas</label>
@@ -142,6 +148,10 @@
                 <div class="form-group">
                     <label>Tahun Ajaran</label>
                     <input type="text" class="form-control" name="tahun" value="<?=$d->tahun_ajaran?>">
+                </div>
+                <div class="form-group">
+                    <label>Upload Jadwal</label>
+                    <input type="file" class="form-control" name="image" value="<?=$d->image?>">
                 </div>
             </div>
             <div class="modal-footer">

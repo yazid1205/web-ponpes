@@ -10,7 +10,7 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header bg-white text-center">              
-              <img src="<?=base_url('assets/smp.png')?>" class="mb-2" style="height: 100px;" alt="">
+              <img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 100px;" alt="">
               <h4>LOGIN</h4>
               <h6>SMPN 24 Banjarmasin</h6>
             </div>

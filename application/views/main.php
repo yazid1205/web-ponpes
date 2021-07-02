@@ -79,15 +79,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
-                        <div id="fh5co-logo"><a href="home"><i class="icon-study"></i> SMPN 24 <span>Banjarmasin</span></a></div>
+
+                        <div id="fh5co-logo"><center><a href="home"><img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 20px;" alt="">SMPN 24<span>  Banjarmasin</span></a></center></div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul> 
                             <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="home">Home</a></li>
                             <li class="has-dropdown <?php echo $content=='profil'? 'active' : ''?>">
-                                <a href="profil">Profil Sekolah</a>
-                                <ul class="dropdown">                                    
-                                    <li><a href="profil">Profil</a></li>
+                                <a href="#">Profil Sekolah</a>
+                                <ul class="dropdown">                     
                                     <li><a href="sambutan">Sambutan</a></li>
                                     <li><a href="visi">Visi-Misi</a></li>
                                     <li><a href="staff">Tenaga Pengajar & Staff</a></li>
@@ -95,7 +95,12 @@
                                 </ul>
                             </li>
                             <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="kegiatan">Berita</a></li>
-                            <li class="<?php echo $content=='jadwal'? 'active' : ''?>"><a href="jadwal">Jadwal Pelajaran</a></li>
+                            <li class="has-dropdown <?php echo $content=='jadwal'? 'active' : ''?>"><a href="#">Jadwal Pelajaran</a>
+                                <ul class="dropdown">                     
+                                    <li><a href="jadwal">Kelas VII</a></li>
+                                    <li><a href="jadwal_del">Kelas VIII</a></li>
+                                    <li><a href="jadwal_sem">Kelas IX</a></li>
+                                </ul></li>
                             <li class="<?php echo $content=='ekscool'? 'active' : ''?>"><a href="ekstra">Ekstrakulikuler</a></li>
                             <li class="<?php echo $content=='prestasi'? 'active' : ''?>"><a href="prestasi">Prestasi</a></li>
                             <li class="<?php echo $content=='galeri'? 'active' : ''?>"><a href="galeri">Galeri</a></li>

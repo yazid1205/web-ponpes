@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<?=base_url('assets/smp.png')?>" height="50" alt="navbar brand" class="navbar-brand">
+      <img src="<?=base_url('assets/logo.jpeg')?>" height="50" alt="navbar brand" class="navbar-brand">
       <small><span class="brand-text font-weight-light">SMPN 24 BANJARMASIN</span></small>
     </a>
 

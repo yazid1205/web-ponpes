@@ -19,8 +19,10 @@ class Home extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->data['content'] = "home";
+	{	
+        $this->load->model('model');
+
+		$this->data['content'] = "home";	
 		$this->data['info'] = $this->db->get('Kegiatan');
 
 		$this->load->view('main', $this->data);

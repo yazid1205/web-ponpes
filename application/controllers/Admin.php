@@ -314,23 +314,23 @@ class Admin extends CI_Controller {
         }
    
             // Akhir koding upload foto
-               
+        
+        $filename = $path . '/' . $data['upload_data']['file_name'];      
+        
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
             unlink($lok);
         }
 
-        $filename = $path . '/' . $data['upload_data']['file_name'];
         
-        $attr = [
+        $attrs = [
             'name_peserta' => $this->input->post('name'),
             'name_lomba' => $this->input->post('lomba'),
             'prestasi' => $this->input->post('prestasi'),
             'tingkat' => $this->input->post('tingkat'),
             'image' => $filename,
         ];
-        
-        $this->model->update('prestasi', $attr, $id);
+        $this->model->update('prestasi', $attrs, $id);
         $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -758,12 +758,35 @@ class Admin extends CI_Controller {
 
     function tambah_jadwal()
     {
+        // Koding Upload Foto
+        $path = 'assets/images/jadwal';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
 
         $attr = [
-            'mapel' => $this->input->post('mapel'),
+            'wali' => $this->input->post('wali'),
             'kelas' => $this->input->post('kelas'),
             'semester' => $this->input->post('semester'),
-            'tahun_ajaran' => $this->input->post('tahun'),
+            'tahun_ajaran' => $this->input->post('tahun'),            
+            'image' => $filename,
             ];
        
 
@@ -776,11 +799,39 @@ class Admin extends CI_Controller {
     {
        $d = $this->db->get_where('jadwal', ['id' => $id])->row();
 
+
+        if(!empty($_FILES["foto"]["name"])) {
+            $path = 'assets/images/jadwal';
+        $config['upload_path']         = $path;
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
+            $this->session->set_flashdata('danger', $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        {
+            $data = array('upload_data' => $this->upload->data());
+        }
+   
+        // Akhir koding upload foto
+
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
+            //Koding hapus gambar lama
+            file_exists($lok=FCPATH.'/'. $d->image);
+            unlink($lok);
+        }
             $attr = [
-            'mapel' => $this->input->post('mapel'),
+            'wali' => $this->input->post('wali'),
             'kelas' => $this->input->post('kelas'),
             'semester' => $this->input->post('semester'),
-            'tahun_ajaran' => $this->input->post('tahun'),
+            'tahun_ajaran' => $this->input->post('tahun'),           
+            'image' => $filename,
             ];
            
         

@@ -37,7 +37,6 @@
                           <th>Judul</th>
                           <th>Image</th>
                           <th>Isi</th>
-                          <th>Komentar</th> 
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
@@ -48,7 +47,6 @@
                               <td><?=$d->judul?></td>
                               <td><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="50px" weight="50px"></a></td>
                               <td><?=$d->isi?></td>
-                              <td><?=$d->id_komentar?></td>
                             <td>
                                 <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_kegiatan(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>

@@ -84,29 +84,29 @@
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul> 
-                            <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="home">Home</a></li>
+                            <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="<?php echo base_url('home') ?>">Home</a></li>
                             <li class="has-dropdown <?php echo $content=='profil'? 'active' : ''?>">
                                 <a href="#">Profil Sekolah</a>
                                 <ul class="dropdown">                     
-                                    <li><a href="sambutan">Sambutan</a></li>
-                                    <li><a href="visi">Visi-Misi</a></li>
-                                    <li><a href="staff">Tenaga Pengajar & Staff</a></li>
-                                    <li><a href="fasilitas">Fasilitas</a></li>
+                                    <li><a href="<?php echo base_url('sambutan') ?>">Sambutan</a></li>
+                                    <li><a href="<?php echo base_url('visi') ?>">Visi-Misi</a></li>
+                                    <li><a href="<?php echo base_url('staff') ?>">Tenaga Pengajar & Staff</a></li>
+                                    <li><a href="<?php echo base_url('fasilitas') ?>">Fasilitas</a></li>
                                 </ul>
                             </li>
-                            <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="kegiatan">Berita</a></li>
+                            <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="<?php echo base_url('kegiatan') ?>">Berita</a></li>
                             <li class="has-dropdown <?php echo $content=='jadwal'? 'active' : ''?>"><a href="#">Jadwal Pelajaran</a>
                                 <ul class="dropdown">                     
-                                    <li><a href="jadwal">Kelas VII</a></li>
-                                    <li><a href="jadwal_del">Kelas VIII</a></li>
-                                    <li><a href="jadwal_sem">Kelas IX</a></li>
+                                    <li><a href="<?php echo base_url('jadwal') ?>">Kelas VII</a></li>
+                                    <li><a href="<?php echo base_url('jadwal_del') ?>">Kelas VIII</a></li>
+                                    <li><a href="<?php echo base_url('jadwal_sem') ?>">Kelas IX</a></li>
                                 </ul></li>
-                            <li class="<?php echo $content=='ekscool'? 'active' : ''?>"><a href="ekstra">Ekstrakulikuler</a></li>
-                            <li class="<?php echo $content=='prestasi'? 'active' : ''?>"><a href="prestasi">Prestasi</a></li>
-                            <li class="<?php echo $content=='galeri'? 'active' : ''?>"><a href="galeri">Galeri</a></li>
-                            <li class="<?php echo $content=='kontak'? 'active' : ''?>"><a href="kontak">Kontak</a></li>
-                            <li class="<?php echo $content=='kritik-saran'? 'active' : ''?>"><a href="kritik">Kritik & Saran</a></li>
-                            <li class="btn btn-cta"><a href="login"><span>Login</span></a></li>
+                            <li class="<?php echo $content=='ekscool'? 'active' : ''?>"><a href="<?php echo base_url('ekstra') ?>">Ekstrakulikuler</a></li>
+                            <li class="<?php echo $content=='prestasi'? 'active' : ''?>"><a href="<?php echo base_url('prestasi') ?>">Prestasi</a></li>
+                            <li class="<?php echo $content=='galeri'? 'active' : ''?>"><a href="<?php echo base_url('galeri') ?>">Galeri</a></li>
+                            <li class="<?php echo $content=='kontak'? 'active' : ''?>"><a href="<?php echo base_url('kontak') ?>">Kontak</a></li>
+                            <li class="<?php echo $content=='kritik-saran'? 'active' : ''?>"><a href="<?php echo base_url('kritik') ?>">Kritik & Saran</a></li>
+                            <li class="btn btn-cta"><a href="<?php echo base_url('login') ?>"><span>Login</span></a></li>
                         </ul>
                     </div>
                 </div>

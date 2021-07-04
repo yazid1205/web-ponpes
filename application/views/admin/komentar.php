@@ -21,7 +21,7 @@
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col-md-6">
-                    <h6>Data Komentar</h6>
+                    <h6>Data Komentar Kegiatan</h6>
                 </div>
             </div>
         </div>
@@ -33,15 +33,55 @@
                           <th>No</th>
                           <th>Id Pengunjung</th>
                           <th>Isi Komentar</th>
+                          <th>Judul Kegiatan</th>
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($komentar->result() as $x => $d): ?>
+                        <?php foreach ($komentar as $x => $d): ?>
                         <tr>
                             <td><?php echo $x+1 ?></td>
                               <td><?=$d->id_user?></td>
-                              <td><?=$d->isi?></td>
+                              <td><?=$d->isi_komen?></td>
+                              <td><?=$d->judul?></td>
+                            <td>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_komentar(<?=$d->id?>)"></i></button>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-white">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Data Komentar Galeri</h6>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-reponsive">
+                <table class="table table-striped dataTable">
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Id Pengunjung</th>
+                          <th>Isi Komentar</th>
+                          <th>Caption Galeri</th>
+                          <th>Aksi</th>                                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($komen as $x => $d): ?>
+                        <tr>
+                            <td><?php echo $x+1 ?></td>
+                              <td><?=$d->id_user?></td>
+                              <td><?=$d->isi_komen?></td>
+                              <td><?=$d->caption?></td>
                             <td>
                                 <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_komentar(<?=$d->id?>)"></i></button>
                             </td>

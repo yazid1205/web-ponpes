@@ -32,7 +32,7 @@ class DetailBerita extends CI_Controller {
 		$attr = [
 		'id_kegiatan' => $this->input->post('id'),
 		'id_user' => $this->input->post('email'),
-        'isi' => $this->input->post('komentar'),
+        'isi_komen' => $this->input->post('komentar'),
             ];
 
         $this->db->insert('komentar', $attr);

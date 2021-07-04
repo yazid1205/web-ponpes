@@ -49,7 +49,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="nav-icon fas fa-user"></i>
+                                        <i class="nav-icon fas fa-user fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-calendar-week fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -92,7 +92,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-book fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -113,7 +113,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-comments fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -138,7 +138,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-users fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -159,7 +159,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-star fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -180,7 +180,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-gavel fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -205,7 +205,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-images fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -226,7 +226,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-school fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">
@@ -247,7 +247,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="icon-grid text-success"></i>
+                                        <i class="nav-icon fas fa-medal fa-4x"></i>
                                     </div>
                                 </div>
                                 <div class="col-7 col-stats">

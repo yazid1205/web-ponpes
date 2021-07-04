@@ -15,27 +15,30 @@
 			<div id="fh5co-contact">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-5 col-md-push-1 animate-box">
+				<div class="col-md-3 col-md-push-1 animate-box"></div>
+				<div class="col-md-4 col-md-push-1 animate-box">
 					
 					<div class="fh5co-contact-info">
 						<h4>Komentar</h4>
+						<ul>
 						<?php foreach ($komen->result() as $x => $d): ?>	
-							<h5><?= $d->id_user ?></h5>
-							<textarea><?= $d->isi ?></textarea>
+							<b><?= $d->id_user ?></b>
+							<?= $d->isi ?>
+							<hr />
 			  			<?php endforeach ?>
+			  			</ul>
 					</div>
-
-				</div>
-				<div class="col-md-6 animate-box">
-					<h5>Sampaikan Komentar Anda</h5>
+					<div><br><br>
+					<h4>Sampaikan Komentar Anda</h4>
 					<form action="<?php echo base_url('detailBerita/tambah_komentar') ?>" method="post">
 
-						<div class="row form-group">
-						<select class="form-control" name="id">
+						<div class="row form-group">						
+							<div class="col-md-12">
+						<select class="form-control" name="id">	
 							<?php foreach ($beri->result() as $x => $d): ?>	
 								<option value="<?= $d->id ?>"><?= $d->judul ?></option>
 			  				<?php endforeach ?>
-						</select>
+						</select></div>
 					</div>
 						<div class="row form-group">
 							<div class="col-md-12">
@@ -55,8 +58,10 @@
 						</div>
 
 					</form>	
+					</div>
 				</div>
-			</div>
+				<div class="col-md-4 col-md-push-1 animate-box"></div>
+				</div>
 			
 		</div>
 	</div>	

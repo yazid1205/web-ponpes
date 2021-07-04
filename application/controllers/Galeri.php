@@ -25,4 +25,16 @@ class Galeri extends CI_Controller {
 
 		$this->load->view('main', $this->data);
 	}
+
+	public function tambah_komentar(){
+
+		$attr = [
+		'id_galeri' => $this->input->post('id'),
+		'id_user' => $this->input->post('email'),
+        'isi_komen' => $this->input->post('komentar'),
+            ];
+
+        $this->db->insert('komentar', $attr);
+        redirect($_SERVER['HTTP_REFERER']);
+	}
 }

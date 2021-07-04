@@ -23,6 +23,14 @@ class Model extends CI_Model{
         return $this->db->get('kegiatan');
     }
 
+    function kegiatanduatabel() {
+        $this->db->select('*');
+        $this->db->from('kegiatan');
+        $this->db->join('komentar','komentar.id=kegiatan.id');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function prestasi() {
         return $this->db->get('prestasi');
     }
@@ -58,6 +66,22 @@ class Model extends CI_Model{
 
     function komentar() {
         return $this->db->get('komentar');
+    }
+
+    function komentarkegiatan() {
+        $this->db->select('*');
+        $this->db->from('komentar');
+        $this->db->join('kegiatan','kegiatan.id=komentar.id_kegiatan');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function komentargaleri() {
+        $this->db->select('*');
+        $this->db->from('komentar');
+        $this->db->join('galeri','galeri.id=komentar.id_galeri');
+        $query = $this->db->get();
+        return $query->result();
     }
 
     function Is_already_register($id)

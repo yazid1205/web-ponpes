@@ -294,7 +294,7 @@ class Admin extends CI_Controller {
        $d = $this->db->get_where('prestasi', ['id' => $id])->row();
       
 
-        if(!empty($_FILES["gambar"]["name"])) {
+        if(!empty($_FILES["image"]["name"])) {
             // Koding Upload Foto
         $path = 'assets/images/prestasi';
         $config['upload_path']         = $path;
@@ -488,7 +488,7 @@ class Admin extends CI_Controller {
        $d = $this->db->get_where('fasilitas', ['id' => $id])->row();
       
 
-        if(!empty($_FILES["foto"]["name"])) {
+        if(!empty($_FILES["image"]["name"])) {
              // Koding Upload Foto
         $path = 'assets/images/fasilitas';
         $config['upload_path']         = $path;
@@ -508,14 +508,13 @@ class Admin extends CI_Controller {
         }
    
         // Akhir koding upload foto
- 
+        
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
             unlink($lok);
         }
         
         $filename = $path . '/' . $data['upload_data']['file_name'];
-
         $attr = [
             'name' => $this->input->post('name'),
             'jmh' => $this->input->post('jmh'),
@@ -701,7 +700,7 @@ class Admin extends CI_Controller {
        $d = $this->db->get_where('ekstrakulikuler', ['id' => $id])->row();
       
 
-        if(!empty($_FILES["foto"]["name"])) {
+        if(!empty($_FILES["image"]["name"])) {
             $path = 'assets/images/ekstra';
         $config['upload_path']         = $path;
         $config['allowed_types']        = 'jpeg|jpg|png';
@@ -800,7 +799,7 @@ class Admin extends CI_Controller {
        $d = $this->db->get_where('jadwal', ['id' => $id])->row();
 
 
-        if(!empty($_FILES["foto"]["name"])) {
+        if(!empty($_FILES["image"]["name"])) {
             $path = 'assets/images/jadwal';
         $config['upload_path']         = $path;
         $config['allowed_types']        = 'jpeg|jpg|png';
@@ -867,7 +866,8 @@ class Admin extends CI_Controller {
     {
         $data['page'] = 'admin/komentar';
         $data['active'] = 'komentar';
-        $data['komentar'] = $this->model->komentar();
+        $data['komentar'] = $this->model->komentarkegiatan();
+        $data['komen'] = $this->model->komentargaleri();
 
         $this->load->view('layouts/app', $data);
     }

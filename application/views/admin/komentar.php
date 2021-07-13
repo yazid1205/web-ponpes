@@ -46,6 +46,7 @@
                               <td><?=$d->judul?></td>
                             <td>
                                 <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_komentar(<?=$d->id?>)"></i></button>
+                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#tanggap_<?=$d->id?>"></i>Tanggapi</button>
                             </td>
                         </tr>
                         <?php endforeach ?>
@@ -84,6 +85,8 @@
                               <td><?=$d->caption?></td>
                             <td>
                                 <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_komentar(<?=$d->id?>)"></i></button>
+
+                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#tanggap_<?=$d->id?>"></i>Tanggapi</button>
                             </td>
                         </tr>
                         <?php endforeach ?>
@@ -94,8 +97,45 @@
     </div>
 </div>
 
+<?php foreach($komen->result() as $d): ?>
+<div class="modal fade" id="tanggap_<?=$d->id?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Tanggapi Komentar</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?php echo base_url('admin/tanggap_komen/' . $d->id) ?>" method="post">
+            <div class="modal-body">
+               <div class="form-group">
+                    <label>Nama Wali</label>
+                    <input type="text" class="form-control" name="wali" value="<?=$d->wali?>">
+                </div>
+                
+                <div class="form-group">
+                    <label>Semester</label>
+                    <input type="text" class="form-control" name="semester" value="<?=$d->semester?>">
+                </div>
+                <div class="form-group">
+                    <label>Tahun Ajaran</label>
+                    <input type="text" class="form-control" name="tahun" value="<?=$d->tahun_ajaran?>">
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php endforeach ?>
+
 <script>
-function delete_kegiatan(id) {
+function delete_komentar(id) {
     var check = confirm('Yakin ingin menghapus data ?');
 
     if(check) {

@@ -23,7 +23,7 @@
 						<ul>
 						<?php foreach ($komen->result() as $x => $d): ?>	
 							<b><?= $d->id_user ?></b>
-							<?= $d->isi ?>
+							<?= $d->isi_komen ?>
 							<hr />
 			  			<?php endforeach ?>
 			  			</ul>

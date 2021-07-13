@@ -74,16 +74,16 @@
     <div class="fh5co-loader"></div>
     
     <div id="page">
-    <nav class="fh5co-nav" role="navigation">
+    <nav class="fh5co-nav" role="navigation" style="background-color: blue">
         <div class="top-menu">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
 
-                        <div id="fh5co-logo"><center><a href="home"><img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 20px;" alt="">SMPN 24<span>  Banjarmasin</span></a></center></div>
+                        <div id="fh5co-logo" class="text-left"><a href="home"><img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 20px;" alt="">SMPN 24<span>  Banjarmasin</span></a></div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
-                        <ul> 
+                        <ul  style="font-size: 50px"> 
                             <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="<?php echo base_url('home') ?>">Home</a></li>
                             <li class="has-dropdown <?php echo $content=='profil'? 'active' : ''?>">
                                 <a href="#">Profil Sekolah</a>

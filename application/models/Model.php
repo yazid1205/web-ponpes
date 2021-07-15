@@ -72,6 +72,7 @@ class Model extends CI_Model{
         $this->db->select('*');
         $this->db->from('komentar');
         $this->db->join('kegiatan','kegiatan.id=komentar.id_kegiatan');
+        $this->db->order_by('komentar.id desc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -80,6 +81,7 @@ class Model extends CI_Model{
         $this->db->select('*');
         $this->db->from('komentar');
         $this->db->join('galeri','galeri.id=komentar.id_galeri');
+        $this->db->order_by('komentar.id desc');
         $query = $this->db->get();
         return $query->result();
     }

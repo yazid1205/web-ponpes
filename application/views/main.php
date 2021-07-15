@@ -80,7 +80,7 @@
                 <div class="row">
                     <div class="col-xs-2">
 
-                        <div id="fh5co-logo"><center><a href="home"><img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 20px;" alt="">SMPN 24 Banjarmasin</a></center></div>
+                        <div id="fh5co-logo"><center><a href="home"><img src="<?=base_url('assets/logo1.PNG')?>" class="mb-2" style="height: 50px;" alt=""></a></center></div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul> 

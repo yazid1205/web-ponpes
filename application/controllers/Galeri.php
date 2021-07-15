@@ -21,7 +21,9 @@ class Galeri extends CI_Controller {
 	public function index()
 	{
 		$this->data['content'] = "galeri";
-        $this->data['galeri'] = $this->db->get("galeri");
+        $this->data['galeri'] = $this->db->query("SELECT * FROM galeri order by id desc");
+        $this->data['komen'] = $this->db->query("SELECT * FROM komentar WHERE id_galeri = '2' AND status_komen='Aktif' ");
+
 
 		$this->load->view('main', $this->data);
 	}

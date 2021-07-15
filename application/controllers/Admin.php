@@ -145,9 +145,11 @@ class Admin extends CI_Controller {
 
     public function kegiatan() 
     {
+
+        
         $data['page'] = 'admin/kegiatan';
         $data['active'] = 'kegiatan';
-        $data['kegiatan'] = $this->model->kegiatan();
+        $data['kegiatan'] = $this->db->query("SELECT * FROM kegiatan order by id desc");
 
         $this->load->view('layouts/app', $data);
     }
@@ -346,7 +348,7 @@ class Admin extends CI_Controller {
     {
         $data['page'] = 'admin/galeri';
         $data['active'] = 'galeri';
-        $data['galeri'] = $this->model->galeri();
+        $data['galeri'] = $this->db->query("SELECT * FROM galeri order by id desc");
 
         $this->load->view('layouts/app', $data);
     }
@@ -877,6 +879,20 @@ class Admin extends CI_Controller {
         $this->model->delete('komentar', $this->input->post('id'));
         $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
         echo 1;
+    }
+
+    public function komen_verif(){
+        $d = $this->db->get_where('komentar', ['id' => $id])->row();
+
+            $attr = [
+            'id_user' => $this->input->post('id_user'),
+            'isi_komen' => $this->input->post('isi'),
+            'status_komen' => $this->input->post('status'),
+            ];
+                 
+
+        $this->db->update('komentar', $attr);
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
 }

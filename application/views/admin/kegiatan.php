@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Admin</h1>
+                <h1 class="m-0 text-dark">Administrator</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
-                <li class="breadcrumb-item active">Kegiatan</li>
+                <li class="breadcrumb-item active">Berita</li>
             </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -21,7 +21,7 @@
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col-md-6">
-                    <h6>Data Kegiatan</h6>
+                    <h6>Data Berita</h6>
                 </div>
                 <div class="col-md-6 text-right">
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-plus-circle mr-1"></i>Tambah</button>
@@ -37,6 +37,7 @@
                           <th>Judul</th>
                           <th>Image</th>
                           <th>Isi</th>
+                          <th>Status</th>
                           <th>Aksi</th>                                     
                         </tr>
                     </thead>
@@ -47,8 +48,9 @@
                               <td><?=$d->judul?></td>
                               <td><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="50px" weight="50px"></a></td>
                               <td><?=$d->isi?></td>
+                              <td><?=$d->status?></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_kegiatan(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash" onclick="delete_kegiatan(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>

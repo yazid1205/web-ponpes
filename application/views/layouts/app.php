@@ -133,7 +133,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
             <a href="<?php echo base_url('admin/kegiatan') ?>" class="nav-link <?= ($active == 'kegiatan') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-calendar-week"></i>
-              <p>Kegiatan Sekolah</p>
+              <p>Berita</p>
             </a>
           </li>
 

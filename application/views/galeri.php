@@ -42,9 +42,9 @@
                 </button>
             </div>
             <div class="container">
-                <a data-fancybox="gallery" href="<?= base_url($d->image) ?>"> <img src="<?= base_url($d->image) ?>"  height="200px" weight="200px"></a>
-            
-
+                <center><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"> <img src="<?= base_url($d->image) ?>"  height="200px" weight="200px"></a>
+            	</center><p><?= ($d->caption) ?></p><br>
+            	
             <br><br>
 					<h3>Sampaikan Komentar Anda</h3>
 					<form action="<?php echo base_url('galeri/tambah_komentar') ?>" method="post">

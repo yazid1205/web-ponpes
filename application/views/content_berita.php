@@ -22,7 +22,7 @@
 						<h4>Komentar</h4>
 						<ul>
 						<?php foreach ($komen->result() as $x => $d): ?>	
-							<b><?= $d->id_user ?></b>
+							<b><?= $d->id_user ?></b> : 
 							<?= $d->isi_komen?>
 							<hr />
 			  			<?php endforeach ?>

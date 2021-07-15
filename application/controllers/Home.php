@@ -23,7 +23,7 @@ class Home extends CI_Controller {
         $this->load->model('model');
 
 		$this->data['content'] = "home";	
-		$this->data['info'] = $this->db->get('Kegiatan');
+		$this->data['info'] = $this->db->query("SELECT * FROM kegiatan WHERE status = 'Baru'");
 
 		$this->load->view('main', $this->data);
 	}

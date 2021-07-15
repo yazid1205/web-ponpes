@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center slider-text">
                             <div class="slider-text-inner">
-                                <h1>Selamat Datang Di</h1>
-                                    <h2>Website  <a href="home" target="_blank">SMPN 24 Banjarmasin</a> Silahkan Jelajah dan Cari Informasi Lengkap Terkain Sekolah Kami</h2>
+                                <h1>Selamat Datang di</h1>
+                                    <h2>Website  <a href="home" target="_blank">SMPN 24 Banjarmasin</a> Silahkan Jelajahi dan Cari Informasi Lengkap Terkait Sekolah Kami</h2>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="col-md-8 col-md-offset-2 text-center slider-text">
                             <div class="slider-text-inner">
                                 <h1>Tersedia Berbagai Info</h1>
-                                    <h2>Kegiatan Prestasi Serta Galeri Photo SMPN 24 Banjarmasin Silahkan Jelajah dan Cari Informasi Lengkap Terkain Sekolah Kami</h2>
+                                    <h2>Kegiatan Prestasi Serta Galeri Photo SMPN 24 Banjarmasin Silahkan Jelajahi dan Cari Informasi Lengkap Terkait Sekolah Kami</h2>
                             </div>
                         </div>
                     </div>

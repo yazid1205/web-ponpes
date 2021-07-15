@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Jadwal</h1>
+                <h1 class="m-0 text-dark">Jadwal Pelajaran</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
-                <li class="breadcrumb-item active">Jadwal</li>
+                <li class="breadcrumb-item active">Jadwal Pelajaran</li>
             </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -21,7 +21,7 @@
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col-md-6">
-                    <h6>Data Jadwal</h6>
+                    <h6>Data Jadwal Pelajaran</h6>
                 </div>
                 <div class="col-md-6 text-right">
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add"><i class="fas fa-plus-circle mr-1"></i>Tambah</button>
@@ -52,7 +52,7 @@
                               <td><?=$d->tahun_ajaran?></td>
                               <td><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"><img src="<?= base_url($d->image) ?>" height="50px" weigth="50px"></a></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_jadwal(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash" onclick="delete_jadwal(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>
@@ -85,10 +85,28 @@
                     <option value="">-Pilih Kelas-</option>
                     <option value="VII A">VII A</option>
                     <option value="VII B">VII B</option>
+                    <option value="VII C">VII C</option>
+                    <option value="VII D">VII D</option>
+                    <option value="VII E">VII E</option>
+                    <option value="VII F">VII F</option>
+
                     <option value="VIII A">VIII A</option>
                     <option value="VIII B">VIII B</option>
+                    <option value="VIII C">VIII C</option>
+                    <option value="VIII D">VIII D</option>
+                    <option value="VIII E">VIII E</option>
+                    <option value="VIII F">VIII F</option>
+                    <option value="VIII G">VIII G</option>
+
                     <option value="IX A">IX A</option>
                     <option value="IX B">IX B</option>
+                    <option value="IX C">IX C</option>
+                    <option value="IX D">IX D</option>
+                    <option value="IX E">IX E</option>
+                    <option value="IX F">IX F</option>
+                    <option value="IX G">IX G</option>
+                    <option value="IX H">IX H</option>
+                    <option value="IX I">IX I</option>
                 </select>
                 </div>
                 <div class="form-group">
@@ -135,10 +153,28 @@
                     <option value="<?=$d->kelas?>"><?=$d->kelas?></option>
                     <option value="VII A">VII A</option>
                     <option value="VII B">VII B</option>
+                    <option value="VII C">VII C</option>
+                    <option value="VII D">VII D</option>
+                    <option value="VII E">VII E</option>
+                    <option value="VII F">VII F</option>
+
                     <option value="VIII A">VIII A</option>
                     <option value="VIII B">VIII B</option>
+                    <option value="VIII C">VIII C</option>
+                    <option value="VIII D">VIII D</option>
+                    <option value="VIII E">VIII E</option>
+                    <option value="VIII F">VIII F</option>
+                    <option value="VIII G">VIII G</option>
+
                     <option value="IX A">IX A</option>
                     <option value="IX B">IX B</option>
+                    <option value="IX C">IX C</option>
+                    <option value="IX D">IX D</option>
+                    <option value="IX E">IX E</option>
+                    <option value="IX F">IX F</option>
+                    <option value="IX G">IX G</option>
+                    <option value="IX H">IX H</option>
+                    <option value="IX I">IX I</option>
                 </select>
                 </div>
                 <div class="form-group">

@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-7 col-stats">
                                     <div class="numbers text-center">
-                                        <h5><p class="card-category">KEGIATAN<br><?=$kegiatan->num_rows()?></p>
+                                        <h5><p class="card-category">BERITA<br><?=$kegiatan->num_rows()?></p>
                                         </h5>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="col-7 col-stats">
                                     <div class="numbers text-center">
-                                        <h5><p class="card-category">EKTRAKULIKULER<br><?=$ekstra->num_rows()?></p>
+                                        <h5><p class="card-category">EKSTRAKULIKULER<br><?=$ekstra->num_rows()?></p>
                                         </h5>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@
                                 </div>
                                 <div class="col-7 col-stats">
                                     <div class="numbers text-center">
-                                        <h5><p class="card-category">Prestasi<br><?=$prestasi->num_rows()?></p>
+                                        <h5><p class="card-category">PRESTASI<br><?=$prestasi->num_rows()?></p>
                                         </h5>
                                     </div>
                                 </div>

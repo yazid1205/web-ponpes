@@ -34,10 +34,6 @@
                           <th>Nip</th>
                           <th>Pendidikan</th>
                           <th>Jabatan</th>
-                          <th>TTL</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Telp</th>
-                          <th>Email</th>
                           <th>Status</th>                              
                         </tr>
                     </thead>
@@ -49,10 +45,6 @@
                               <td><?=$d->nip?></td>
                               <td><?=$d->pendidikan?></td>
                               <td><?=$d->jabatan?></td>
-                              <td><?=$d->tempat_lahir?>, <?=$d->tgl_lahir?></td>
-                              <td><?=$d->j_kelamin?></td>
-                              <td><?=$d->telp?></td>
-                              <td><?=$d->email?></td>
                               <td><?=$d->status?></td> 
                         </tr>
                         <?php endforeach ?>

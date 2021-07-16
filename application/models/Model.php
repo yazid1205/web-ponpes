@@ -3,7 +3,7 @@ class Model extends CI_Model{
 	
 	public function user()
 	{
-		return $this->db->where('level', 2)->get('users');
+		return $this->db->where('level', 1)->get('users');
 	}
 
 	function update($table, $data, $id) {

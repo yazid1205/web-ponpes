@@ -80,33 +80,41 @@
                 <div class="row">
                     <div class="col-xs-2">
 
+<<<<<<< HEAD
                         <div id="fh5co-logo" class="text-left"><a href="home"><img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 20px;" alt="">SMPN 24<span>  Banjarmasin</span></a></div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul  style="font-size: 50px"> 
                             <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="<?php echo base_url('home') ?>">Home</a></li>
+=======
+                        <div id="fh5co-logo"><center><a href="home"><img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 20px;" alt="">SMPN 24 Banjarmasin</a></center></div>
+                    </div>
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul> 
+                            <li class="<?php echo $content=='home'? 'active' : ''?>"><a href="<?php echo base_url('home') ?>">HOME</a></li>
+>>>>>>> 5db454125d10f674d8409624b828bb61e0980dc9
                             <li class="has-dropdown <?php echo $content=='profil'? 'active' : ''?>">
-                                <a href="#">Profil Sekolah</a>
+                                <a href="#">PROFIL</a>
                                 <ul class="dropdown">                     
-                                    <li><a href="<?php echo base_url('sambutan') ?>">Sambutan</a></li>
-                                    <li><a href="<?php echo base_url('visi') ?>">Visi-Misi</a></li>
-                                    <li><a href="<?php echo base_url('staff') ?>">Tenaga Pengajar & Staff</a></li>
-                                    <li><a href="<?php echo base_url('fasilitas') ?>">Fasilitas</a></li>
+                                    <li><a href="<?php echo base_url('sambutan') ?>">SAMBUTAN</a></li>
+                                    <li><a href="<?php echo base_url('visi') ?>">VISI MISI</a></li>
+                                    <li><a href="<?php echo base_url('staff') ?>">TENAGA PENGAJAR & STAFF</a></li>
+                                    <li><a href="<?php echo base_url('fasilitas') ?>">FASILITAS</a></li>
                                 </ul>
                             </li>
-                            <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="<?php echo base_url('kegiatan') ?>">Berita</a></li>
-                            <li class="has-dropdown <?php echo $content=='jadwal'? 'active' : ''?>"><a href="#">Jadwal Pelajaran</a>
+                            <li class="<?php echo $content=='berita'? 'active' : ''?>"><a href="<?php echo base_url('kegiatan') ?>">BERITA</a></li>
+                            <li class="has-dropdown <?php echo $content=='jadwal'? 'active' : ''?>"><a href="#">JADWAL PELAJARAN</a>
                                 <ul class="dropdown">                     
-                                    <li><a href="<?php echo base_url('jadwal') ?>">Kelas VII</a></li>
-                                    <li><a href="<?php echo base_url('jadwal_del') ?>">Kelas VIII</a></li>
-                                    <li><a href="<?php echo base_url('jadwal_sem') ?>">Kelas IX</a></li>
+                                    <li><a href="<?php echo base_url('jadwal') ?>">KELAS VII</a></li>
+                                    <li><a href="<?php echo base_url('jadwal_del') ?>">KELAS VIII</a></li>
+                                    <li><a href="<?php echo base_url('jadwal_sem') ?>">KELAS IX</a></li>
                                 </ul></li>
-                            <li class="<?php echo $content=='ekscool'? 'active' : ''?>"><a href="<?php echo base_url('ekstra') ?>">Ekstrakulikuler</a></li>
-                            <li class="<?php echo $content=='prestasi'? 'active' : ''?>"><a href="<?php echo base_url('prestasi') ?>">Prestasi</a></li>
-                            <li class="<?php echo $content=='galeri'? 'active' : ''?>"><a href="<?php echo base_url('galeri') ?>">Galeri</a></li>
-                            <li class="<?php echo $content=='kontak'? 'active' : ''?>"><a href="<?php echo base_url('kontak') ?>">Kontak</a></li>
-                            <li class="<?php echo $content=='kritik-saran'? 'active' : ''?>"><a href="<?php echo base_url('kritik') ?>">Kritik & Saran</a></li>
-                            <li class="btn btn-cta"><a href="<?php echo base_url('login') ?>"><span>Login</span></a></li>
+                            <li class="<?php echo $content=='ekscool'? 'active' : ''?>"><a href="<?php echo base_url('ekstra') ?>">EKSTRAKULIKULER</a></li>
+                            <li class="<?php echo $content=='prestasi'? 'active' : ''?>"><a href="<?php echo base_url('prestasi') ?>">PRESTASI</a></li>
+                            <li class="<?php echo $content=='galeri'? 'active' : ''?>"><a href="<?php echo base_url('galeri') ?>">GALERI</a></li>
+                            <li class="<?php echo $content=='kontak'? 'active' : ''?>"><a href="<?php echo base_url('kontak') ?>">KONTAK</a></li>
+                            <li class="<?php echo $content=='kritik-saran'? 'active' : ''?>"><a href="<?php echo base_url('kritik') ?>">KRITIK & SARAN</a></li>
+                            <li class="btn btn-cta"><a href="<?php echo base_url('login') ?>"><span>LOGIN</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -123,7 +131,7 @@
             <div class="row row-pb-md">
                 <div class="col-md-5 fh5co-widget">
                     <h3>SMPN 24 Banjarmasin</h3>
-                    <p>Beralamat Di Komplek Madani I, Jl. Sultan Adam Jalur II No. 05 RT.031/RW.003, Surgi Mufti, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan</p>
+                    <p>Jalan Sultan Adam Komplek Madani No. 05 RT. 31, Kelurahan Surgi Mufti, Kecamatan Banjarmasin Utara, Kota Banjarmasin, Provinsi Kalimantan Selatan</p>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
                     <h3>Aktivitas Sekolah</h3>

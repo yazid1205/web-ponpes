@@ -10,8 +10,16 @@ class Model extends CI_Model{
     	return $this->db->where('id', $id)->update($table, $data);
     }
 
+    function update_komen($table, $data, $id) {
+        return $this->db->where('id_ko', $id)->update($table, $data);
+    }
+ 
     function delete($table, $id) {
     	return $this->db->where('id', $id)->delete($table);
+    }
+
+    function delete_komen($table, $id) {
+        return $this->db->where('id_ko', $id)->delete($table);
     }
 
 	function get_where($table, $id) {
@@ -23,26 +31,7 @@ class Model extends CI_Model{
         return $this->db->get('kegiatan');
     }
 
-    function kegiatanduatabel() {
-        $this->db->select('*');
-        $this->db->from('kegiatan');
-        $this->db->join('komentar','komentar.id=kegiatan.id');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function prestasi() {
-        return $this->db->get('prestasi');
-    }
-
-    function ekstra() {
-        return $this->db->get('ekstrakulikuler');
-    }
-
-    function fasilitas() {
-        return $this->db->get('fasilitas');
-    }
-
+    
     function jadwal() {
         return $this->db->get('jadwal');
     }
@@ -62,26 +51,6 @@ class Model extends CI_Model{
 
     function kritik() {
         return $this->db->get('kriitik');
-    }
-
-    function komentar() {
-        return $this->db->get('komentar');
-    }
-
-    function komentarkegiatan() {
-        $this->db->select('*');
-        $this->db->from('komentar');
-        $this->db->join('kegiatan','kegiatan.id=komentar.id_kegiatan');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function komentargaleri() {
-        $this->db->select('*');
-        $this->db->from('komentar');
-        $this->db->join('galeri','galeri.id=komentar.id_galeri');
-        $query = $this->db->get();
-        return $query->result();
     }
 
     function Is_already_register($id)

@@ -80,12 +80,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-            <a href="<?php echo base_url('login/logout') ?>" class="nav-link">
-              <i class="nav-icon fas fa-sign-out-alt"></i>Logout              
-            </a>
-          </li>
-    </ul>
+       <li><div class="image text-center">
+          <img src="<?php echo base_url(''.$this->auth->user()->image )?>" class="img-circle elevation-2" alt="User Image" width="50px">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block"><?php echo $this->auth->user()->name ?></a>
+        </div>
+        </li></ul>
   </nav>
   <!-- /.navbar -->
 
@@ -93,20 +94,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<?=base_url('assets/logo.jpeg')?>" height="50" alt="navbar brand" class="navbar-brand">
-      <small><span class="brand-text font-weight-light">SMPN 24 BANJARMASIN</span></small>
+      <span class="brand-text font-weight-light text-center">TARBIYATUL FURQAN</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?php echo base_url(''.$this->auth->user()->image )?>" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"><?php echo $this->auth->user()->name ?></a>
-        </div>
+       
       </div>
  
       <!-- Sidebar Menu -->
@@ -133,14 +128,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
             <a href="<?php echo base_url('admin/kegiatan') ?>" class="nav-link <?= ($active == 'kegiatan') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-calendar-week"></i>
-              <p>Kegiatan Sekolah</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<?php echo base_url('admin/prestasi') ?>" class="nav-link <?= ($active == 'prestasi') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-medal"></i>
-              <p>Prestasi</p>
+              <p>Berita</p>
             </a>
           </li>
 
@@ -154,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
             <a href="<?php echo base_url('admin/staff') ?>" class="nav-link <?= ($active == 'staff') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-users"></i>
-              <p>Tenaga Pendidik/Staff</p>
+              <p>Tenaga Pendidik</p>
             </a>
           </li>
           
@@ -166,33 +154,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           
            <li class="nav-item">
-            <a href="<?php echo base_url('admin/fasilitas') ?>" class="nav-link <?= ($active == 'fasilitas') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-school"></i>
-              <p>Fasilitas</p>
-            </a>
-          </li>
-          
-           <li class="nav-item">
-            <a href="<?php echo base_url('admin/ekschool') ?>" class="nav-link <?= ($active == 'ekschool') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-star"></i>
-              <p>Ekstrakulikuler</p>
-            </a>
-          </li>
-
-           <li class="nav-item">
             <a href="<?php echo base_url('admin/kritik') ?>" class="nav-link <?= ($active == 'kritik') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-gavel"></i>
+              <i class="nav-icon fas fa-comment"></i>
               <p>Kritik & Saran</p>
             </a>
           </li>
           
-           <li class="nav-item">
-            <a href="<?php echo base_url('admin/komentar') ?>" class="nav-link <?= ($active == 'komentar') ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-comments"></i>
-              <p>Komentar</p>
+          <li class="nav-item">
+            <a href="<?php echo base_url('login/logout') ?>" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>Logout              
             </a>
           </li>
-          
+  
         <?php endif ?>
 
         <?php if($this->auth->user()->level == 2): ?>
@@ -239,14 +212,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <!-- Default to the left -->
-    <center><strong>Copyright &copy; 2021 <a href="#">SMPN 24 BANJARMASIN</a>.</strong> All rights reserved.</center>
-  </footer>
+  
 </div>
 <!-- ./wrapper -->
-
+<footer class="main-footer">
+    <!-- To the right -->
+    <!-- Default to the left -->
+    <center><strong>Copyright &copy; 2021 <a href="#">PONDOK PESANTREN TARBIYATUL FURQAN</a>.</strong> All rights reserved.</center>
+  </footer>
 <!-- REQUIRED SCRIPTS -->
   <?php $this->load->view('layouts/foot'); ?>
   \<script type="text/javascript">        

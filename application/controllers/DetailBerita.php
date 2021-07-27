@@ -19,23 +19,13 @@ class DetailBerita extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index($id) {
-        $this->data['content'] = "content_berita";
-        $this->data['page'] = "berita";
+		 $data = array(	'title'	=>	'Detail Pengumuman atau Kegiatan - Pondok Pesantren Tarbiyatul Furqan',
+						'isi'	=>	'home/content_info',
+						'beri' =>  $this->db->query("SELECT * FROM kegiatan WHERE id = '".$id."'")
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 
-        $this->data['beri'] = $this->db->query("SELECT * FROM kegiatan WHERE id = '".$id."'");
-        $this->data['komen'] = $this->db->query("SELECT * FROM komentar WHERE id_kegiatan = '".$id."'");
-
-        $this->load->view('main', $this->data);
+       
     }
-    public function tambah_komentar(){
-		
-		$attr = [
-		'id_kegiatan' => $this->input->post('id'),
-		'id_user' => $this->input->post('email'),
-        'isi_komen' => $this->input->post('komentar'),
-            ];
-
-        $this->db->insert('komentar', $attr);
-        redirect($_SERVER['HTTP_REFERER']);
-	}
+    
 }

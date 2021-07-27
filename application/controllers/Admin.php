@@ -8,14 +8,13 @@ class Admin extends CI_Controller {
         logged_in();
         role_admin();
     }
-
+ 
 
     public function index() 
     {
         $data['page'] = 'admin/dashboard';
         $data['active'] = 'dashboard';
 
-        $this->data['komen'] = $this->db->get('komentar');
 
         $this->load->view('layouts/app', $data);
     }
@@ -125,11 +124,23 @@ class Admin extends CI_Controller {
             'image' => $filename,
             'level' => $this->input->post('level'),
         ];
-
+ 
             //Koding hapus gambar lama
             file_exists($lok=FCPATH.'/'. $d->image);
             unlink($lok);
         }
+        $filename = $path . '/' . $data['upload_data']['file_name'];
+
+        $attr = [
+            'name' => $this->input->post('name'),
+            'nip' => $this->input->post('nip'),
+            'email' => $this->input->post('email'),
+            'username' => $this->input->post('username'),
+            'password' => $password,
+            'image' => $filename,
+            'level' => $this->input->post('level'),
+        ];
+
         
         $this->model->update('users', $attr, $id);
         $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
@@ -145,9 +156,11 @@ class Admin extends CI_Controller {
 
     public function kegiatan() 
     {
+
+        
         $data['page'] = 'admin/kegiatan';
         $data['active'] = 'kegiatan';
-        $data['kegiatan'] = $this->model->kegiatan();
+        $data['kegiatan'] = $this->db->query("SELECT * FROM kegiatan order by id desc");
 
         $this->load->view('layouts/app', $data);
     }
@@ -240,113 +253,11 @@ class Admin extends CI_Controller {
         echo 1;
     }
 
-    public function prestasi() 
-    {
-        $data['page'] = 'admin/prestasi';
-        $data['active'] = 'prestasi';
-        $data['prestasi'] = $this->model->prestasi();
-
-        $this->load->view('layouts/app', $data);
-    }
-
-    public function tambah_prestasi()
-    {        
-       // Koding Upload Foto
-        $path = 'assets/images/prestasi';
-        $config['upload_path']         = $path;
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('image'))
-        {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        {
-            $data = array('upload_data' => $this->upload->data());
-        }
-   
-        // Akhir koding upload foto
-
-        $filename = $path . '/' . $data['upload_data']['file_name'];
-
-        $attr = [
-            'name_peserta' => $this->input->post('name'),
-            'name_lomba' => $this->input->post('lomba'),
-            'prestasi' => $this->input->post('prestasi'),
-            'tingkat' => $this->input->post('tingkat'),
-            'image' => $filename,
-        ];
-       // echo "<pre>";
-       // var_dump($attr);
-        //exit();
-
-        $this->db->insert('prestasi', $attr);
-        $this->session->set_flashdata('success', 'Berhasil Menambahkan Data');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function update_prestasi($id)
-    {
-       $d = $this->db->get_where('prestasi', ['id' => $id])->row();
-      
-
-        if(!empty($_FILES["image"]["name"])) {
-            // Koding Upload Foto
-        $path = 'assets/images/prestasi';
-        $config['upload_path']         = $path;
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('image'))
-        {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        {
-            $data = array('upload_data' => $this->upload->data());
-        }
-   
-            // Akhir koding upload foto
-        
-        $filename = $path . '/' . $data['upload_data']['file_name'];      
-        
-            //Koding hapus gambar lama
-            file_exists($lok=FCPATH.'/'. $d->image);
-            unlink($lok);
-        }
-
-        
-        $attrs = [
-            'name_peserta' => $this->input->post('name'),
-            'name_lomba' => $this->input->post('lomba'),
-            'prestasi' => $this->input->post('prestasi'),
-            'tingkat' => $this->input->post('tingkat'),
-            'image' => $filename,
-        ];
-        $this->model->update('prestasi', $attrs, $id);
-        $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function delete_prestasi()
-    {
-        $this->model->delete('prestasi', $this->input->post('id'));
-        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
-        echo 1;
-    }
-
         public function galeri() 
     {
         $data['page'] = 'admin/galeri';
         $data['active'] = 'galeri';
-        $data['galeri'] = $this->model->galeri();
+        $data['galeri'] = $this->db->query("SELECT * FROM galeri order by id desc");
 
         $this->load->view('layouts/app', $data);
     }
@@ -439,99 +350,7 @@ class Admin extends CI_Controller {
         echo 1;
     }
 
-    public function fasilitas() 
-    {
-        $data['page'] = 'admin/fasilitas';
-        $data['active'] = 'fasilitas';
-        $data['fasilitas'] = $this->model->fasilitas();
-
-        $this->load->view('layouts/app', $data);
-    }
-
-    function tambah_fasilitas()
-    {
-        // Koding Upload Foto
-        $path = 'assets/images/fasilitas';
-        $config['upload_path']         = $path;
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('image'))
-        {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        {
-            $data = array('upload_data' => $this->upload->data());
-        }
    
-        // Akhir koding upload foto
- 
-        $filename = $path . '/' . $data['upload_data']['file_name'];
-
-        $attr = [
-            'name' => $this->input->post('name'),
-            'jmh' => $this->input->post('jmh'),
-            'image' => $filename,
-        ];
-
-        $this->db->insert('fasilitas', $attr);
-        $this->session->set_flashdata('success', 'Berhasil Menambahkan Data');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function update_fasilitas($id)
-    {
-       $d = $this->db->get_where('fasilitas', ['id' => $id])->row();
-      
-
-        if(!empty($_FILES["image"]["name"])) {
-             // Koding Upload Foto
-        $path = 'assets/images/fasilitas';
-        $config['upload_path']         = $path;
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('image'))
-        {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        {
-            $data = array('upload_data' => $this->upload->data());
-        }
-   
-        // Akhir koding upload foto
-        
-            //Koding hapus gambar lama
-            file_exists($lok=FCPATH.'/'. $d->image);
-            unlink($lok);
-        }
-        
-        $filename = $path . '/' . $data['upload_data']['file_name'];
-        $attr = [
-            'name' => $this->input->post('name'),
-            'jmh' => $this->input->post('jmh'),
-            'image' => $filename,
-        ];
-        $this->model->update('fasilitas', $attr, $id);
-        $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function delete_fasilitas()
-    {
-        $this->model->delete('fasilitas', $this->input->post('id'));
-        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
-        echo 1;
-    }
-
     public function staff() 
     {
         $data['page'] = 'admin/staff';
@@ -646,106 +465,7 @@ class Admin extends CI_Controller {
         echo 1;
     }
 
-    public function ekschool() 
-    {
-        $data['page'] = 'admin/ekstra';
-        $data['active'] = 'ekschool';
-        $data['ekstra'] = $this->model->ekstra();
-
-        $this->load->view('layouts/app', $data);
-    }
-
-    function tambah_ekstra()
-    {
-        // Koding Upload Foto
-        $path = 'assets/images/ekstra';
-        $config['upload_path']         = $path;
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('image'))
-        {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        {
-            $data = array('upload_data' => $this->upload->data());
-        }
    
-        // Akhir koding upload foto
-
-        $filename = $path . '/' . $data['upload_data']['file_name'];
-
-        $attr = [
-            'name' => $this->input->post('name'),
-            'pembina' => $this->input->post('pembina'),
-            'hari' => $this->input->post('hari'),
-            'jam' => $this->input->post('jam'),
-            'image' => $filename,
-        ];
-       // echo "<pre>";
-       // var_dump($attr);
-        //exit();
-
-        $this->db->insert('ekstrakulikuler', $attr);
-        $this->session->set_flashdata('success', 'Berhasil Menambahkan Data');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function update_ekstra($id)
-    {
-       $d = $this->db->get_where('ekstrakulikuler', ['id' => $id])->row();
-      
-
-        if(!empty($_FILES["image"]["name"])) {
-            $path = 'assets/images/ekstra';
-        $config['upload_path']         = $path;
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('image'))
-        {
-            $error = 'Gambar yang anda masukan salah. Periksa lagi ekstensi foto';
-            $this->session->set_flashdata('danger', $error);
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-        {
-            $data = array('upload_data' => $this->upload->data());
-        }
-   
-        // Akhir koding upload foto
-
-        $filename = $path . '/' . $data['upload_data']['file_name'];
-
-            //Koding hapus gambar lama
-            file_exists($lok=FCPATH.'/'. $d->image);
-            unlink($lok);
-        }
-        
-        $attr = [
-            'name' => $this->input->post('name'),
-            'pembina' => $this->input->post('pembina'),
-            'hari' => $this->input->post('hari'),
-            'jam' => $this->input->post('jam'),
-            'image' => $filename,
-        ];
-        $this->model->update('ekstrakulikuler', $attr, $id);
-        $this->session->set_flashdata('success', 'Berhasil Mengedit Data');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function delete_ekstra()
-    {
-        $this->model->delete('ekstrakulikuler', $this->input->post('id'));
-        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
-        echo 1;
-    }
-
     public function jadwal() 
     {
         $data['page'] = 'admin/jadwal';
@@ -858,23 +578,6 @@ class Admin extends CI_Controller {
      public function delete_kritik()
     {
         $this->model->delete('kriitik', $this->input->post('id'));
-        $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
-        echo 1;
-    }
-
-     public function komentar() 
-    {
-        $data['page'] = 'admin/komentar';
-        $data['active'] = 'komentar';
-        $data['komentar'] = $this->model->komentarkegiatan();
-        $data['komen'] = $this->model->komentargaleri();
-
-        $this->load->view('layouts/app', $data);
-    }
-
-      public function delete_komentar()
-    {
-        $this->model->delete('komentar', $this->input->post('id'));
         $this->session->set_flashdata('success', 'Berhasil Menghapus Data');
         echo 1;
     }

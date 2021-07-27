@@ -20,9 +20,10 @@ class Staff extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "staff";
-        $this->data['staff'] = $this->db->get("pegawai");
-
-		$this->load->view('main', $this->data);
+		$data = array(	'title'	=>	'Pengajar dan Guru - Pondok Pesantren Tarbiyatul Furqan',
+						'isi'	=>	'home/pengajar',
+						'staff' =>  $this->db->get("pegawai")
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 }

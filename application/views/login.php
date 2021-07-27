@@ -3,16 +3,16 @@
 <head>
   <?php $this->load->view('layouts/head'); ?>
 </head>
-<body class="bg-light">
+<body  class="custom-bg" style="background-color: green">
 
     <div class="container pt-5"> 
       <div class="row justify-content-center mt-5">
         <div class="col-md-4">
           <div class="card">
             <div class="card-header bg-white text-center">              
-              <img src="<?=base_url('assets/logo.jpeg')?>" class="mb-2" style="height: 100px;" alt="">
+              <img src="<?=base_url('assets/logo.png')?>" class="mb-2" style="height: 100px;" alt="">
               <h4>LOGIN</h4>
-              <h6>SMPN 24 Banjarmasin</h6>
+              <h6>Pondok Pesantren<br>Tarbiyatul Furqan</h6>
             </div>
             <div class="card-body">
 
@@ -30,7 +30,6 @@
                 <hr>
                 <button class="btn btn-primary btn-block">Login</button>
               </form>
-              <center><button class="btn btn-sucses  btn-block"><a href="login/login_google" >Login With Google</a></button></center>
             </div>
           </div>
         </div>

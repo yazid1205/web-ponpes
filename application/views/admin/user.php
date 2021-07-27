@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Admin</h1>
+                <h1 class="m-0 text-dark">Administrator</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -35,7 +35,6 @@
                         <tr>
                           <th>No</th>
                           <th>Nama</th>
-                          <th>NIP</th>
                           <th>Email</th>
                           <th>Username</th>
                           <th>Photo</th>
@@ -47,12 +46,11 @@
                         <tr>
                             <td><?php echo $x+1 ?></td>
                               <td><?=$d->name?></td>
-                              <td><?=$d->nip?></td>
                               <td><?=$d->email?></td>
                               <td><?=$d->username?></td>
                               <td><a data-fancybox="gallery" href="<?= base_url($d->image) ?>"><img src="<?= base_url($d->image) ?>" height="50px" weight="50px"></a></td>
                             <td>
-                                <button class="btn btn-danger btn-sm"><i class="fas fa-times" onclick="delete_user(<?=$d->id?>)"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash" onclick="delete_user(<?=$d->id?>)"></i></button>
                                 <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit_<?=$d->id?>"></i></button>
                             </td>
                         </tr>
@@ -85,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email">
                 </div>
                 <div class="form-group">
                     <label>Username</label>
@@ -135,7 +133,7 @@
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" name="email" value="<?=$d->email?>">
+                    <input type="email" class="form-control" name="email" value="<?=$d->email?>">
                 </div>
                 <div class="form-group">
                     <label>Username</label>

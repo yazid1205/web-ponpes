@@ -20,8 +20,9 @@ class Profil extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "profil";
-
-		$this->load->view('main', $this->data);
+		 $data = array(	'title'	=>	'Sejarah - Pondok Pesantren Tarbiyatul Furqan',
+						'isi'	=>	'home/sejarah'
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 }

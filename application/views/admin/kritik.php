@@ -57,7 +57,7 @@
 </div>
 
 <script>
-function delete_kegiatan(id) {
+function delete_kritik(id) {
     var check = confirm('Yakin ingin menghapus data ?');
 
     if(check) {

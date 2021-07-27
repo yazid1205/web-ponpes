@@ -22,12 +22,9 @@
 						<h4>Komentar</h4>
 						<ul>
 						<?php foreach ($komen->result() as $x => $d): ?>	
-							<b><?= $d->id_user ?></b>
-<<<<<<< HEAD
-							<?= $d->isi_komen ?>
-=======
+
+							<b><?= $d->id_user ?></b> : 
 							<?= $d->isi_komen?>
->>>>>>> 5db454125d10f674d8409624b828bb61e0980dc9
 							<hr />
 			  			<?php endforeach ?>
 			  			</ul>

@@ -20,8 +20,9 @@ class Kontak extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "kontak";
-
-		$this->load->view('main', $this->data);
+		$data=array('title'=>'Kontak - Pondok Pesantren Tarbiyatul Furqan',
+					'isi'  =>'home/kontak'
+						);
+		$this->load->view('layout/wrapper',$data);	
 	}
 }

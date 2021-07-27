@@ -20,21 +20,21 @@ class Galeri extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "galeri";
-        $this->data['galeri'] = $this->db->get("galeri");
 
-		$this->load->view('main', $this->data);
+        $data = array(	'title'	=>	'Galeri - Pondok Pesantren Tarbiyatul Furqan',
+						'isi'	=>	'home/galeri',
+						'galeri' =>  $this->db->query("SELECT * FROM galeri order by id desc")
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 
-	public function tambah_komentar(){
+	public function detail($id)
+	{
+		$this->data['content'] = "content_galeri";
+        $this->data['galeri'] = $this->db->query("SELECT * FROM galeri WHERE id ='".$id."'");
+        $this->data['komen'] = $this->db->query("SELECT * FROM komentar WHERE id_galeri = '".$id."' AND status_komen='Aktif' ");
 
-		$attr = [
-		'id_galeri' => $this->input->post('id'),
-		'id_user' => $this->input->post('email'),
-        'isi_komen' => $this->input->post('komentar'),
-            ];
 
-        $this->db->insert('komentar', $attr);
-        redirect($_SERVER['HTTP_REFERER']);
+		$this->load->view('main', $this->data);
 	}
 }

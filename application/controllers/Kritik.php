@@ -20,9 +20,11 @@ class Kritik extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "kritik-saran";
-
-		$this->load->view('main', $this->data);
+		$data = array(	'title'	=>	'Kritik dan Saran - Pondok Pesantren Tarbiyatul Furqan',
+						'isi'	=>	'home/kritik',
+						'staff' =>  $this->db->get("pegawai")
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 	public function tambah_kritik(){
 		

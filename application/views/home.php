@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center slider-text">
                             <div class="slider-text-inner">
-                                <h1>Selamat Datang Di</h1>
-                                    <h2>Website  <a href="home" target="_blank">SMPN 24 Banjarmasin</a> Silahkan Jelajah dan Cari Informasi Lengkap Terkain Sekolah Kami</h2>
+                                <h1>Selamat Datang di</h1>
+                                    <h2>Website  <a href="home" target="_blank">SMPN 24 Banjarmasin</a> Silahkan Jelajahi dan Cari Informasi Lengkap Terkait Sekolah Kami</h2>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="col-md-8 col-md-offset-2 text-center slider-text">
                             <div class="slider-text-inner">
                                 <h1>Tersedia Berbagai Info</h1>
-                                    <h2>Kegiatan Prestasi Serta Galeri Photo SMPN 24 Banjarmasin Silahkan Jelajah dan Cari Informasi Lengkap Terkain Sekolah Kami</h2>
+                                    <h2>Kegiatan Prestasi Serta Galeri Photo SMPN 24 Banjarmasin Silahkan Jelajahi dan Cari Informasi Lengkap Terkait Sekolah Kami</h2>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="fh5co-event">
                         <div class="date text-center"><span><a data-fancybox="gallery" href="<?= base_url($d->gambar) ?>"><img src="<?= base_url($d->gambar) ?>" height="50px" weight="50px"></a></span></div>
                         <h3><?= $d->judul ?></h3>
-                        <p><?= $d->isi ?></p>
+                        <p><?= substr($d->isi, 0,100) ?>...</p>
                         <p><a  href="<?php echo base_url('DetailBerita/index/' .$d->id); ?>">Read More</a></p>
                     </div>
                 </div>

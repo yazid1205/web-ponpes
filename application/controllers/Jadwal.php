@@ -9,13 +9,16 @@ class Jadwal extends CI_Controller {
 
 	public function index()
 	{
-		$VIIA = $this->db->query("SELECT * FROM jadwal WHERE kelas = 'VII A'");
-		$VIIB = $this->db->query("SELECT * FROM jadwal WHERE kelas = 'VII B'");
-
-		$this->data['content'] = "jadwal";
-        $this->data['jadwala'] = $VIIA;
-        $this->data['jadwalb'] = $VIIB;    
-
-		$this->load->view('main', $this->data);
+		
+		$data = array(	'title'	=>	'Sistem Informasi Web Profil',
+						'isi'	=>	'home/jadwal',
+						'tujuha' =>  $this->db->query("SELECT * FROM jadwal WHERE kelas = 'VII A'"),
+						'tujuhb' =>  $this->db->query("SELECT * FROM jadwal WHERE kelas = 'VII B'"),
+						'delapana' =>  $this->db->query("SELECT * FROM jadwal WHERE kelas = 'VIII A'"),
+						'delapanb' =>  $this->db->query("SELECT * FROM jadwal WHERE kelas = 'VIII B'"),
+						'sembilana' =>  $this->db->query("SELECT * FROM jadwal WHERE kelas = 'IX A'"),
+						'sembilanb' =>  $this->db->query("SELECT * FROM jadwal WHERE kelas = 'IX B'")
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 }

@@ -20,8 +20,9 @@ class Visi extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->data['content'] = "visi-misi";
-
-		$this->load->view('main', $this->data);
+		 $data = array(	'title'	=>	'Visi Misi - Pondok Pesantren Tarbiyatul Furqan',
+						'isi'	=>	'home/visi'
+					);
+		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 }
